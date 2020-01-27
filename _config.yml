@@ -110,8 +110,8 @@ author:
   name             : "조규영"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  location         : "South Korea"
+  email            : "rbud613@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
