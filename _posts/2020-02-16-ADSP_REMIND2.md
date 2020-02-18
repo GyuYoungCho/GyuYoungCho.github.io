@@ -92,7 +92,8 @@ toc : true
 #### 최적으 회귀방정식 선택
 - aic, bic로 적합성을 봄
 - 단계적 변수선택법
-```{r}
+
+```r
 step(lm(y~1,df),scope=list(lower=~1,upper=~x1+x2),direction="forward")
 ```
 
@@ -150,7 +151,7 @@ cor.test() : 상관계수 검정
 - 순환요인 : 알려지지 않은 주기를 가지고 자료가 변화
 - 불규칙요인 : 설명할 수 없는 요인(오차)
 
-```{r}
+```r
 diff(data,differences=1)
 # 한번 차분
 decompose(data)
@@ -176,7 +177,7 @@ auto.arima(data)
 로짓변환 : log(p/(1-p))
 
 최대우도 추정법
-```{r}
+```r
 glm(pmale~x,family='binomial',weight=total)
 ```
 
@@ -197,6 +198,7 @@ estimate값의 exp값이 오즈의 배수가 됨
 - F통계량의 p값, 분산감소량이 분류 기준값의 선택 방법이 됨
 
 **기준변수의 선택법**
+
 |구분|이산형|연속형|
 |:-:|:-:|:-:|
 |CHAID|카이제곱통계량|ANOVA 통계량|
