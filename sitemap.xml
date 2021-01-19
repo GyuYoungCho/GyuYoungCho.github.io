@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://example.com/about/</loc>
+    <lastmod>2021-01-19T15:42:54+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/</loc>
-    <lastmod>2021-01-19T10:07:52+09:00</lastmod>
+    <lastmod>2021-01-19T15:42:54+09:00</lastmod>
   </url>
   
   <url>
@@ -15,80 +20,6 @@
   <url>
     <loc>https://example.com/posts/test/</loc>
     <lastmod>2021-01-19T10:07:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-16-adsp_remind2/</loc>
-    <lastmod>2021-01-19T10:02:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-14-adsp_remind1/</loc>
-    <lastmod>2021-01-19T10:02:22+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-13-adp_study14/</loc>
-    <lastmod>2021-01-19T10:03:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-12-adp_study13/</loc>
-    <lastmod>2021-01-19T10:03:37+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-11-adp_study12/</loc>
-    <lastmod>2021-01-19T10:03:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-08-adp_study11/</loc>
-    <lastmod>2021-01-19T10:03:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-02-01-adp_study10/</loc>
-    <lastmod>2021-01-19T10:03:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-31-adp_study9/</loc>
-    <lastmod>2021-01-19T10:02:43+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-30-adp_study8/</loc>
-    <lastmod>2021-01-19T10:01:43+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-27-adp_study5/</loc>
-    <lastmod>2021-01-19T10:00:59+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-25-adp_study4/</loc>
-    <lastmod>2021-01-19T10:00:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-24-adp_study3/</loc>
-    <lastmod>2021-01-19T10:00:25+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-23-adp_study_1/</loc>
-    <lastmod>2021-01-19T10:00:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2020-01-23-adp_study_2/</loc>
-    <lastmod>2021-01-19T10:00:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/categories/</loc>
   </url>
   
   <url>
