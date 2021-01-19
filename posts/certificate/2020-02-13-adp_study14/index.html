@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>ADP 공부하기 14 | GyuYoung&#39;s Blog</title>
+
+    <link rel="stylesheet" href="/css/meme.min.1008950c2c1506946141a901c0c23e88b90ebffd68a45f95e5cc4a76978fed07.css"/>
+
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.72638256f3e1f0d25cde8d4fc6269de4b98b5e10710e697c37c04466daf4072d.js"></script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="reuixiy" /><meta name="description" content="다축 생성 다축 생성 절차  첫 번째 그래프 생성(축을 지정하지 않은 그래프) 점 추가 y축 생성 y축 이름 지정 두번째 그래프 생성 점 추가 y축 생성 y축 이름 지정 세 번째 그래프 생성 y축 생성 점 추가 y축 이름 지정 x축 생성 및 이름 지정 사용자화  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  plot(time,pop,axes=F,xlim=c(7000,3400),ylim=c(0,max(pop)), xlab=&#34;&#34;,ylab=&#34;&#34;,type=&#34;l&#34;,col=&#34;black&#34;,main=&#34;&#34;) points(time,pop,pch=20,col=&#34;black&#34;) axis(2, ylim=c(0,max(pop)), col= &#34;black&#34;, lwd=2) mtext(2, text=&#34;Population&#34;, line=2) par(new=T) plot(time,med,axes=F,xlim=c(7000,3400),ylim=c(0,max(med)), xlab=&#34;&#34;,ylab=&#34;&#34;,type=&#34;l&#34;,lty=2,lwd=2, col=&#34;black&#34;,main=&#34;&#34;) points(time,med,pch=20,col=&#34;black&#34;) axis(2, ylim=c(0,max(med)), col= &#34;black&#34;, lwd=2,line=3." />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="GyuYoung&#39;s Blog" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GyuYoung&#39;s Blog" />
+    <meta name="msapplication-starturl" content="../../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2020-02-13T16:24:22+09:00",
+        "dateModified": "2021-01-19T16:57:38+09:00",
+        "url": "https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/",
+        "headline": "ADP 공부하기 14",
+        "description": "다축 생성 다축 생성 절차  첫 번째 그래프 생성(축을 지정하지 않은 그래프) 점 추가 y축 생성 y축 이름 지정 두번째 그래프 생성 점 추가 y축 생성 y축 이름 지정 세 번째 그래프 생성 y축 생성 점 추가 y축 이름 지정 x축 생성 및 이름 지정 사용자화  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  plot(time,pop,axes=F,xlim=c(7000,3400),ylim=c(0,max(pop)), xlab=\"\",ylab=\"\",type=\"l\",col=\"black\",main=\"\") points(time,pop,pch=20,col=\"black\") axis(2, ylim=c(0,max(pop)), col= \"black\", lwd=2) mtext(2, text=\"Population\", line=2) par(new=T) plot(time,med,axes=F,xlim=c(7000,3400),ylim=c(0,max(med)), xlab=\"\",ylab=\"\",type=\"l\",lty=2,lwd=2, col=\"black\",main=\"\") points(time,med,pch=20,col=\"black\") axis(2, ylim=c(0,max(med)), col= \"black\", lwd=2,line=3.",
+        "inLanguage" : "ko-kr",
+        "articleSection": "posts",
+        "wordCount":  945 ,
+        "image": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "Viva La Vida",
+            "email": "reuixiy@gmail.com",
+            "image": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png",
+            "url": "https://io-oi.me/",
+            "name": "reuixiy"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "GyuYoung's Blog",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png"
+            },
+            "url": "https://gyuyoungcho.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://gyuyoungcho.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+<meta name="twitter:site" content="@reuixiy" />
+<meta name="twitter:creator" content="@reuixiy" />
+
+    
+
+
+
+<meta property="og:title" content="ADP 공부하기 14" />
+<meta property="og:description" content="다축 생성 다축 생성 절차  첫 번째 그래프 생성(축을 지정하지 않은 그래프) 점 추가 y축 생성 y축 이름 지정 두번째 그래프 생성 점 추가 y축 생성 y축 이름 지정 세 번째 그래프 생성 y축 생성 점 추가 y축 이름 지정 x축 생성 및 이름 지정 사용자화  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  plot(time,pop,axes=F,xlim=c(7000,3400),ylim=c(0,max(pop)), xlab=&#34;&#34;,ylab=&#34;&#34;,type=&#34;l&#34;,col=&#34;black&#34;,main=&#34;&#34;) points(time,pop,pch=20,col=&#34;black&#34;) axis(2, ylim=c(0,max(pop)), col= &#34;black&#34;, lwd=2) mtext(2, text=&#34;Population&#34;, line=2) par(new=T) plot(time,med,axes=F,xlim=c(7000,3400),ylim=c(0,max(med)), xlab=&#34;&#34;,ylab=&#34;&#34;,type=&#34;l&#34;,lty=2,lwd=2, col=&#34;black&#34;,main=&#34;&#34;) points(time,med,pch=20,col=&#34;black&#34;) axis(2, ylim=c(0,max(med)), col= &#34;black&#34;, lwd=2,line=3." />
+<meta property="og:url" content="https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/" />
+<meta property="og:site_name" content="GyuYoung&#39;s Blog" />
+<meta property="og:locale" content="en" /><meta property="og:image" content="https://gyuyoungcho.github.io/icons/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-02-13T16:24:22&#43;09:00" />
+    <meta property="article:modified_time" content="2021-01-19T16:57:38&#43;09:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">GyuYoung&#39;s Blog</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">Posts</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/categories/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon th"><path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"/></svg><span class="menu-item-name">Categories</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">Tags</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">About</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                <li class="menu-item search-item">
+                        <form id="search" class="search" role="search">
+    <label for="search-input"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon search-icon"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></label>
+    <input type="search" id="search-input" class="search-input">
+</form>
+
+<template id="search-result" hidden>
+    <article class="content post">
+        <h2 class="post-title"><a class="summary-title-link"></a></h2>
+        <summary class="summary"></summary>
+        <div class="read-more-container">
+            <a class="read-more-link">Read More »</a>
+        </div>
+    </article>
+</template>
+
+                    </li>
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-small-caps="true" data-align="default" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title p-name">ADP 공부하기 14</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2020-02-13T16:24:22&#43;09:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2020.2.13</time>
+    
+    
+        
+        <time datetime="2021-01-19T16:57:38&#43;09:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2021.1.19</time>
+    
+    
+    
+        
+        
+        
+            
+                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/categories/certificate/" class="category-link p-category">Certificate</a></span>
+            
+        
+    
+    
+        
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;945</span>
+    
+    
+        
+        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;5&nbsp;mins</span>
+    
+    
+    
+</div>
+
+            
+
+            <div class="post-body e-content">
+              <h1 id="다축-생성"><a href="#다축-생성" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>다축 생성</h1>
+<h3 id="다축-생성-절차"><a href="#다축-생성-절차" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>다축 생성 절차</h3>
+<ol>
+<li>첫 번째 그래프 생성(축을 지정하지 않은 그래프)</li>
+<li>점 추가</li>
+<li>y축 생성</li>
+<li>y축 이름 지정</li>
+<li>두번째 그래프 생성</li>
+<li>점 추가</li>
+<li>y축 생성</li>
+<li>y축 이름 지정</li>
+<li>세 번째 그래프 생성</li>
+<li>y축 생성</li>
+<li>점 추가</li>
+<li>y축 이름 지정</li>
+<li>x축 생성 및 이름 지정</li>
+<li>사용자화</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">pop</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">7000</span><span class="p">,</span><span class="m">3400</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="nf">max</span><span class="p">(</span><span class="n">pop</span><span class="p">)),</span>
+<span class="n">xlab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&#34;l&#34;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">pop</span><span class="p">,</span><span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="nf">max</span><span class="p">(</span><span class="n">pop</span><span class="p">)),</span> <span class="n">col</span><span class="o">=</span> <span class="s">&#34;black&#34;</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">mtext</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&#34;Population&#34;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">new</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">med</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">7000</span><span class="p">,</span><span class="m">3400</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="nf">max</span><span class="p">(</span><span class="n">med</span><span class="p">)),</span>
+<span class="n">xlab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&#34;l&#34;</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">med</span><span class="p">,</span><span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="nf">max</span><span class="p">(</span><span class="n">med</span><span class="p">)),</span> <span class="n">col</span><span class="o">=</span> <span class="s">&#34;black&#34;</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">line</span><span class="o">=</span><span class="m">3.5</span><span class="p">)</span>
+<span class="nf">mtext</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&#34;Median Group Size&#34;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="m">5.5</span><span class="p">)</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">new</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">grp</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span><span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">7000</span><span class="p">,</span><span class="m">3400</span><span class="p">),</span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="nf">max</span><span class="p">(</span><span class="n">grp</span><span class="p">)),</span>
+<span class="n">xlab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&#34;l&#34;</span><span class="p">,</span><span class="n">lty</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+<span class="nf">points</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">grp</span><span class="p">,</span><span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&#34;black&#34;</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="nf">max</span><span class="p">(</span><span class="n">grp</span><span class="p">)),</span> <span class="n">col</span><span class="o">=</span> <span class="s">&#34;black&#34;</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span><span class="n">line</span><span class="o">=</span><span class="m">7</span><span class="p">)</span>
+<span class="nf">mtext</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&#34;Number of Groups&#34;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="m">9</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><h3 id="그-외-다양한-그래프"><a href="#그-외-다양한-그래프" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>그 외 다양한 그래프</h3>
+<ul>
+<li>aplpack 패키지 : 줄기잎 그림, 체르노프 페이스, 스타차트 등 제공</li>
+</ul>
+<ol>
+<li>줄기 잎 그림</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stem.leaf</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol start="2">
+<li>얼굴 그림</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">faces</span><span class="p">(</span><span class="n">worldplace</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol start="3">
+<li>별 그림</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">stars</span><span class="p">(</span><span class="n">worldplace</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><hr>
+<br>
+<h2 id="공간-분석"><a href="#공간-분석" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>공간 분석</h2>
+<h3 id="구글-비즈"><a href="#구글-비즈" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>구글 비즈</h3>
+<p><strong>모션 차트</strong></p>
+<ul>
+<li>구글 비즈를 사용하기 위해서는 그래프 축과 관련된 시간과 id변수를 지정한 후 plot으로 그림</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">m1</span> <span class="o">=</span> <span class="nf">gvisMotionChart</span><span class="p">(</span><span class="n">Fruits</span><span class="p">,</span> <span class="n">idvar</span><span class="o">=</span><span class="s">&#34;Fruit&#34;</span><span class="p">,</span><span class="n">timevar</span><span class="o">=</span><span class="s">&#34;Years&#34;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><strong>지오차트</strong></p>
+<ul>
+<li>지도와 그 위에 데이터를 표시</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"> <span class="nf">gvisMotionChart</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">locationvar</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">colorvar</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">sizevar</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">howervar</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">options</span><span class="o">=</span> <span class="nf">list</span><span class="p">(),</span> <span class="n">charid</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol>
+<li>색상 구분</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">G1</span> <span class="o">=</span> <span class="nf">gvisGeoChart</span><span class="p">(</span><span class="n">exports</span><span class="p">,</span> <span class="n">locationvar</span><span class="o">=</span><span class="s">&#39;Country&#39;</span><span class="p">,</span> <span class="n">colorvar</span><span class="o">=</span><span class="s">&#39;Profit&#39;</span><span class="p">)</span>
+<span class="c1"># 전 세계 지도에 수익크기를 색상으로 구별</span>
+<span class="n">G1</span> <span class="o">=</span> <span class="nf">gvisGeoChart</span><span class="p">(</span><span class="n">exports</span><span class="p">,</span><span class="s">&#39;Country&#39;</span><span class="p">,</span><span class="s">&#39;Profit&#39;</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">))</span>
+<span class="c1"># 유럽 지역으로 한정해 구분</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol start="2">
+<li>표시 방식 및 해상도 지정</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">G1</span> <span class="o">=</span> <span class="nf">gvisGeoChart</span><span class="p">(</span><span class="n">states</span><span class="p">,</span><span class="s">&#34;statename&#34;</span><span class="p">,</span><span class="s">&#34;illiteracy&#34;</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">&#34;US&#34;</span><span class="p">),</span><span class="n">displayMode</span><span class="o">=</span><span class="s">&#34;regions&#34;</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="s">&#34;provinces&#34;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">600</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="m">400</span><span class="p">)</span>
+<span class="c1"># 주별 문맹률 정보가 나타나도록 option표시 방식과 해상도 수준 지정</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol start="3">
+<li>속도 표시</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">G1</span> <span class="o">=</span> <span class="nf">gvisGeoChart</span><span class="p">(</span><span class="n">Andrew</span><span class="p">,</span> <span class="s">&#34;Latlong&#34;</span><span class="p">,</span> <span class="n">colorvar</span><span class="o">=</span><span class="s">&#39;Speed_kt&#39;</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="s">&#34;US))
+</span><span class="s"># 위치별 속도를 각각의 색상으로 표시함
+</span><span class="s">G1 = gvisGeoChart(Andrew, &#34;</span><span class="n">Latlong</span><span class="s">&#34;,sizevar= &#34;</span><span class="n">Speed_kt</span><span class="s">&#39;, colorvar=&#39;</span><span class="n">Pressure_mb</span><span class="s">&#39;</span><span class="err">,option=list(region=&#34;US))</span>
+<span class="c1"># 색깔이 아닌 원의 크기로 표현</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol start="4">
+<li>깊이 표시</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">G1</span> <span class="o">=</span> <span class="nf">gvisGeoChart</span><span class="p">(</span><span class="n">quake</span><span class="p">,</span> <span class="s">&#34;Latlong&#34;</span><span class="p">,</span><span class="s">&#34;depth&#34;</span><span class="p">,</span><span class="s">&#34;mag&#34;</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">displayMode</span> <span class="o">=</span> <span class="s">&#34;Markers&#34;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s">&#34;009&#34;</span><span class="p">,</span><span class="n">colorAxis</span><span class="o">=</span><span class="s">&#34;{color:[&#39;red&#39;,&#39;grey&#39;]}&#34;</span><span class="p">,</span><span class="n">backgroundColor</span><span class="o">=</span><span class="s">&#34;lightblue&#34;</span><span class="p">))</span>
+<span class="c1"># 깊이와 진도정보로 표시</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><strong>모자이크 플롯</strong></p>
+<ul>
+<li>복수의 categorical variable 분포 파악이 도움이 되는 시각화</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">mosaic</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span><span class="n">shade</span><span class="o">=</span><span class="bp">T</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+<span class="c1"># 색상 추가</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">strucplot</span><span class="p">(</span><span class="n">titanic</span><span class="p">,</span><span class="n">pop</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+<span class="nf">grid.edit</span><span class="p">(</span><span class="s">&#34;rect:Class=1st,SEx=Male,Age=Adult,survived=Yes&#34;</span><span class="p">,</span><span class="n">gp</span> <span class="o">=</span> <span class="nf">gpar</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s">&#34;red&#34;</span><span class="p">))</span>
+<span class="c1"># 특정 집단의 색상 지정</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><hr>
+<br>
+<h3 id="샤이니-사용"><a href="#샤이니-사용" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>샤이니 사용</h3>
+<ul>
+<li>R에서 인터렉티브하게 웹 앱을 만들 수 있는 패키지</li>
+<li>동적 시각화 자료를 웹으로 쉽게 배포 가능</li>
+<li>독립형 앱을 호스트하거나 R Markdown문서에 포함하거나 대시보드 작성</li>
+<li>css, html, javascript 작업 가능</li>
+</ul>
+<h4 id="샤이니-기본-구성"><a href="#샤이니-기본-구성" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>샤이니 기본 구성</h4>
+<ol>
+<li>구조</li>
+</ol>
+<ul>
+<li>header, body, footer 구조를 지닌 html과 유사</li>
+<li>headerPanel : 제목과 주제</li>
+<li>sidebarPanel : mainPanel에서 다룰 수 있는 컴포넌트가 들어감</li>
+<li>mainPanel : 실질적으로 보여지는 부분</li>
+</ul>
+<ol start="2">
+<li>ui.R, server R code</li>
+</ol>
+<ul>
+<li>샤이니를 실행하기 위해 ui.R, server R code 파일이 동일 디렉토리 안에 있어야 함</li>
+<li>ui.R : 화면 구성, component class 설정</li>
+<li>server R code : 코드들이 들어가는 곳, id값을 설정해 ui.R에 input, output값으로 작동</li>
+</ul>
+<p><strong>hello_shiny(ui.R)</strong></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">shinyUI</span><span class="p">(</span><span class="nf">pageWithSidebar</span><span class="p">(</span>
+    <span class="nf">headerPanel</span><span class="p">(</span><span class="s">&#34;hello shiny&#34;</span><span class="p">),</span>
+    <span class="nf">sidebarPanel</span><span class="p">(</span>
+        <span class="nf">sliderInput</span><span class="p">(</span><span class="s">&#34;obs&#34;</span><span class="p">,</span><span class="s">&#34;Number of observation: &#34;</span><span class="p">,</span> <span class="n">min</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="m">1000</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="m">500</span><span class="p">))</span>
+    <span class="nf">mainPanel</span><span class="p">(</span><span class="nf">plotOutput</span><span class="p">(</span><span class="s">&#34;distPloy&#34;</span><span class="p">))</span>
+    <span class="p">))</span>
+<span class="c1"># obs를 컴포넌트로 나타내 값은 1부터 1000까지, 기본값은 500</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><strong>hello_shiny(server.R)</strong></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">shinyServer</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="n">output</span><span class="p">){</span>
+    <span class="n">output</span><span class="o">$</span><span class="n">distPlot</span> <span class="o">=</span> <span class="nf">renderPlot</span><span class="p">({</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">obs</span><span class="p">)</span>
+        <span class="nf">hist</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+<span class="c1"># input, output만듬, distplot이라는 함수를 output으로 보내 renderplot 출력</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ol start="3">
+<li>샤이니 기본 사용법
+<strong>시작과 종료</strong></li>
+</ol>
+<ul>
+<li>일반적인 방법으로 c:/test/shiny로 디렉터리를 만들고 각각의 ui.R, server R파일을 폴더에 넣어 관리함(동일폴더에 있어야 함)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;c:/test/shiny/hello&#34;</span><span class="p">)</span>
+<span class="nf">runApp</span><span class="p">()</span> <span class="c1"># 샤이니 실행</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><ul>
+<li>샤이니는 r server에서 브라우저로 별도로 운영되기 때문에 브라우저 종료 후 반드시 세션을 끝내줘야 함</li>
+</ul>
+<p><strong>input, output</strong></p>
+<ul>
+<li>input, output으로 id를 만들고 안에 설정된 데이터나 그래프 등을 주고받는다.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">shinyUI</span><span class="p">(</span><span class="nf">pageWithSidebar</span><span class="p">(</span>
+    <span class="nf">headerPanel</span><span class="p">(</span><span class="s">&#34;hello shiny&#34;</span><span class="p">),</span>
+    <span class="nf">sidebarPanel</span><span class="p">(</span> <span class="nf">selectInput</span><span class="p">(</span>
+        <span class="s">&#34;Variable&#34;</span><span class="p">,</span><span class="s">&#34;Variable: &#34;</span><span class="p">,</span>
+        <span class="nf">list</span><span class="p">(</span><span class="s">&#34;Cylinders&#34;</span> <span class="o">=</span> <span class="s">&#34;cyl&#34;</span><span class="p">,</span>
+        <span class="s">&#34;Transmission&#34;</span><span class="o">=</span><span class="s">&#34;am&#34;</span><span class="p">,</span> <span class="s">&#34;Geers&#34;</span><span class="o">=</span><span class="s">&#34;gear&#34;</span><span class="p">))</span>
+    <span class="nf">checkboxInput</span><span class="p">(</span><span class="s">&#34;outliers&#34;</span><span class="p">,</span><span class="s">&#34;Show outliers&#34;</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">))</span>
+    <span class="nf">mainPanel</span><span class="p">(</span><span class="nf">h3</span><span class="p">(</span><span class="nf">textOutput</span><span class="p">(</span><span class="s">&#34;caption&#34;</span><span class="p">)),</span>
+    <span class="nf">plotOutput</span><span class="p">(</span><span class="s">&#34;mpgPlot&#34;</span><span class="p">))</span>
+    <span class="p">))</span>
+<span class="c1"># 세션 종료 후 재실행하면 server.r 코드가 mainpanel에 나타남</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><strong>Slider</strong></p>
+<ul>
+<li>슬라이드 바는 inputID 지정 후 label, min, max, value, step, format을 지정 후 눈금 표시 여부를 ticks를 T/F값으로 지정하고 움직임에 따라 animate를 T/F로 지정</li>
+</ul>
+<p><strong>Tabsets</strong></p>
+<ul>
+<li>한 화면에 tab을 만들어 탭별로 다른 그래프나 테이블을 보여줄 수 있음</li>
+</ul>
+<p><strong>dataTable</strong></p>
+<ul>
+<li>자바스크립트 사용, 코드를 두 개로 나누지 않고 한번에 코딩 가능, 하지만 관리 등을 위해 나눠서 하는게 좋음</li>
+</ul>
+<h2 id="라이브러리-기반-시각화-구현d3js"><a href="#라이브러리-기반-시각화-구현d3js" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>라이브러리 기반 시각화 구현(d3.js)</h2>
+<h3 id="d3js특징"><a href="#d3js특징" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>d3.js특징</h3>
+<ul>
+<li>자바스크립트 기반 데이터 시각화 라이브러리</li>
+<li><strong>SVG객체, ,canvas객체 등을 기반으로 동작</strong></li>
+<li>css를 통해 객체의 레이아웃과 속성을 변경해 디자인적 요소를 조작할 수 있음</li>
+<li>firefox, chrome, safari opera 에서 모두 테스트되어 한 동일한 코드에 일관적인 결과를 얻을 수 있다.</li>
+</ul>
+<h3 id="시각화-구현-절차"><a href="#시각화-구현-절차" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>시각화 구현 절차</h3>
+<ol>
+<li>데이터 획득</li>
+</ol>
+<ul>
+<li>로컬에 저장된 파일, DB, 웹에 공개된 데이터</li>
+</ul>
+<ol start="2">
+<li>데이터 파싱</li>
+</ol>
+<ul>
+<li>csv, xml, json등의 형식을 파싱할 수 있는 API 제공</li>
+</ul>
+<ol start="3">
+<li>데이터 필터링</li>
+</ol>
+<ul>
+<li>필요하지 않은 데이터 제거</li>
+</ul>
+<ol start="4">
+<li>데이터 표현</li>
+</ol>
+<ul>
+<li>중요한 사항은 매핑의 scale</li>
+<li>scale이라는 객체로 데이터와 시각적 요소 간의 관계 정의</li>
+<li>한 번의 구현으로 다양한 화면의 크기에서 동작해야하는 시각화에서 매우 유용</li>
+<li>다양한 크기의 화면에 동일한 차트나 지도를 그릴 수 있다. 또한 동적으로 변경되어도 차트나 지도가 깨지지 않음</li>
+</ul>
+<ol start="5">
+<li>상호작용 추가</li>
+</ol>
+<ul>
+<li>마우스 클릭, 키보드 입력 등을 인지, 처리할 수 있도록 함</li>
+<li>상세하게 보여주기, 지역 포커싱 등 가능</li>
+</ul>
+<h3 id="시각화-구현을-위한-기본-개념"><a href="#시각화-구현을-위한-기본-개념" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>시각화 구현을 위한 기본 개념</h3>
+<ul>
+<li>객체지향 언어라 객체를 생성해야함</li>
+<li>d3.js는 데이터를 svg이미지로 시각화하는데 사용되는 함수를 모아놓은 파일과 같은 것</li>
+</ul>
+<ol>
+<li>SVG</li>
+</ol>
+<ul>
+<li>그림을 그리기 위한 HTML태그</li>
+<li><strong>각각의 모양을 일일이 함수로 정의 후 표현</strong></li>
+<li>해상도와 독립적, 이벤트 핸들링을 지원해 사용자와 상호작용이 필요한 시각화 구현</li>
+</ul>
+<ol start="2">
+<li>scale</li>
+</ol>
+<ul>
+<li>시각화 그림들이 화면에 출력되는 과정에서 부자연스럽게 표현되는 것을 방지</li>
+<li>크기와 컬러를 자동으로 조정해 &lsquo;시각화의 최적화&rsquo;를 도움</li>
+<li>데이터 값을 건드리지 않고 데이터 값에 맞는 크기와 컬러 범위를 출력 장치에 맞도록 시각화</li>
+<li>domain : scale 입력값 범위 지정</li>
+<li>range : scale 출력값 범위 지정</li>
+<li>.scale : domain, range로 설정된 scale을 통해 원하는 위치에 무언가를 놓는 것</li>
+</ul>
+<h3 id="막대차트로-시각화-구현"><a href="#막대차트로-시각화-구현" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>막대차트로 시각화 구현</h3>
+<ol>
+<li>객체 생성</li>
+<li>데이터 입력</li>
+<li>스케일 정의</li>
+<li>차트에 막대 추가</li>
+</ol>
+<ul>
+<li>rect 객체 사용</li>
+</ul>
+<ol start="5">
+<li>레이블 추가</li>
+</ol>
+<ul>
+<li>text 객체 사용</li>
+</ul>
+<ol start="6">
+<li>축 추가</li>
+</ol>
+<h4 id="파이-차트"><a href="#파이-차트" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>파이 차트</h4>
+<ul>
+<li>d3.svg.arc : 파이 모양 구현</li>
+</ul>
+<h4 id="스캐터-플롯"><a href="#스캐터-플롯" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>스캐터 플롯</h4>
+<h3 id="히트맵으로-비교-시각화-구현"><a href="#히트맵으로-비교-시각화-구현" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>히트맵으로 비교 시각화 구현</h3>
+<ul>
+<li>색상의 차이를 통해 데이터 표현</li>
+<li><strong>canvas 객체 필요</strong></li>
+<li>drawimage : canvas에 준비한 이미지를 출력</li>
+</ul>
+<p><strong>svg와 canvas 차이</strong></p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th></th>
+<th>svg</th>
+<th>canvas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>용도</td>
+<td>시각화를 구현하기 위해 사용</td>
+<td></td>
+</tr>
+<tr>
+<td>객체에 정보 저장</td>
+<td>O</td>
+<td>X</td>
+</tr>
+<tr>
+<td>다시 그리기</td>
+<td>유리</td>
+<td>불리</td>
+</tr>
+<tr>
+<td>성능</td>
+<td>낮다</td>
+<td>높다</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>svg 객체는 화면에 출력한 모든 정보를 담고 있기 때문에 event handler를 연결할 수 있다.</li>
+<li>사용자의 행위에 따라 필요한 객체만 화면에 그릴 때 유리하지만 모든 정보를 객체로 저장하고 있어 성능 문제가 발생할 수 있음</li>
+</ul>
+<h3 id="지도로-시각화-구현"><a href="#지도로-시각화-구현" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>지도로 시각화 구현</h3>
+<ul>
+<li>좌표 정보를 데이터로 입력하고 path객체를 할당하는 방법으로 구현할 수 있다.</li>
+<li>path 객체를 통해 좌표 정보를 픽셀로 변환해 화면에 도형을 그릴 수 있다.</li>
+</ul>
+
+            </div>
+
+            
+    
+    
+        <ul class="post-copyright">
+            <li class="copyright-item author"><span class="copyright-item-text">Author</span>: <a href="https://io-oi.me/" class="p-author h-card" target="_blank" rel="noopener">reuixiy</a></li>
+            
+                
+                
+                
+                
+                <li class="copyright-item link"><span class="copyright-item-text">Link</span>: <a href="/posts/certificate/2020-02-13-adp_study14/" target="_blank" rel="noopener">https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/</a></li>
+            
+            <li class="copyright-item license"><span class="copyright-item-text">License</span>: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            
+        </ul>
+    
+
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2021-01-19 16:57:38 KST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-01-19</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-01-19</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        <div class="post-share">
+
+        
+
+        <div class="share-items">
+
+            
+                <div class="share-item twitter">
+                    
+                    <a href="https://twitter.com/share?url=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;text=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014&amp;hashtags=&amp;via=reuixiy" title="Share on Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item facebook">
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;hashtag=%23" title="Share on Facebook" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item linkedin">
+                    
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;title=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014&amp;summary=%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%88%ec%b0%a8%20%20%ec%b2%ab%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%28%ec%b6%95%ec%9d%84%20%ec%a7%80%ec%a0%95%ed%95%98%ec%a7%80%20%ec%95%8a%ec%9d%80%20%ea%b7%b8%eb%9e%98%ed%94%84%29%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%eb%91%90%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%84%b8%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20x%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%82%ac%ec%9a%a9%ec%9e%90%ed%99%94%20%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20%20plot%28time,pop,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28pop%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,col=%22black%22,main=%22%22%29%20points%28time,pop,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28pop%29%29,%20col=%20%22black%22,%20lwd=2%29%20mtext%282,%20text=%22Population%22,%20line=2%29%20par%28new=T%29%20plot%28time,med,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28med%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,lty=2,lwd=2,%20col=%22black%22,main=%22%22%29%20points%28time,med,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28med%29%29,%20col=%20%22black%22,%20lwd=2,line=3.&amp;source=GyuYoung%27s%20Blog" title="Share on LinkedIn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item telegram">
+                    
+                    <a href="https://t.me/share/url?url=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;text=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014" title="Share on Telegram" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon telegram-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item weibo">
+                    
+                    <a href="https://service.weibo.com/share/share.php?&amp;url=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;title=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014&amp;pic=https://gyuyoungcho.github.io/icons/apple-touch-icon.png&amp;searchPic=false" title="Share on Weibo" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon weibo-icon"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item douban">
+                    
+                    <a href="https://www.douban.com/share/service?href=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;name=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014&amp;text=%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%88%ec%b0%a8%20%20%ec%b2%ab%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%28%ec%b6%95%ec%9d%84%20%ec%a7%80%ec%a0%95%ed%95%98%ec%a7%80%20%ec%95%8a%ec%9d%80%20%ea%b7%b8%eb%9e%98%ed%94%84%29%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%eb%91%90%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%84%b8%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20x%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%82%ac%ec%9a%a9%ec%9e%90%ed%99%94%20%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20%20plot%28time,pop,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28pop%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,col=%22black%22,main=%22%22%29%20points%28time,pop,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28pop%29%29,%20col=%20%22black%22,%20lwd=2%29%20mtext%282,%20text=%22Population%22,%20line=2%29%20par%28new=T%29%20plot%28time,med,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28med%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,lty=2,lwd=2,%20col=%22black%22,main=%22%22%29%20points%28time,med,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28med%29%29,%20col=%20%22black%22,%20lwd=2,line=3." title="Share on Douban" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qq">
+                    
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;title=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014&amp;summary=%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%88%ec%b0%a8%20%20%ec%b2%ab%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%28%ec%b6%95%ec%9d%84%20%ec%a7%80%ec%a0%95%ed%95%98%ec%a7%80%20%ec%95%8a%ec%9d%80%20%ea%b7%b8%eb%9e%98%ed%94%84%29%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%eb%91%90%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%84%b8%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20x%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%82%ac%ec%9a%a9%ec%9e%90%ed%99%94%20%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20%20plot%28time,pop,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28pop%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,col=%22black%22,main=%22%22%29%20points%28time,pop,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28pop%29%29,%20col=%20%22black%22,%20lwd=2%29%20mtext%282,%20text=%22Population%22,%20line=2%29%20par%28new=T%29%20plot%28time,med,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28med%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,lty=2,lwd=2,%20col=%22black%22,main=%22%22%29%20points%28time,med,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28med%29%29,%20col=%20%22black%22,%20lwd=2,line=3.&amp;pics=https://gyuyoungcho.github.io/icons/apple-touch-icon.png&amp;site=GyuYoung%27s%20Blog" title="Share on QQ" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qzone">
+                    
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/&amp;title=ADP%20%ea%b3%b5%eb%b6%80%ed%95%98%ea%b8%b0%2014&amp;summary=%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%8b%a4%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%88%ec%b0%a8%20%20%ec%b2%ab%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%28%ec%b6%95%ec%9d%84%20%ec%a7%80%ec%a0%95%ed%95%98%ec%a7%80%20%ec%95%8a%ec%9d%80%20%ea%b7%b8%eb%9e%98%ed%94%84%29%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%eb%91%90%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%84%b8%20%eb%b2%88%ec%a7%b8%20%ea%b7%b8%eb%9e%98%ed%94%84%20%ec%83%9d%ec%84%b1%20y%ec%b6%95%20%ec%83%9d%ec%84%b1%20%ec%a0%90%20%ec%b6%94%ea%b0%80%20y%ec%b6%95%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20x%ec%b6%95%20%ec%83%9d%ec%84%b1%20%eb%b0%8f%20%ec%9d%b4%eb%a6%84%20%ec%a7%80%ec%a0%95%20%ec%82%ac%ec%9a%a9%ec%9e%90%ed%99%94%20%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20%20plot%28time,pop,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28pop%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,col=%22black%22,main=%22%22%29%20points%28time,pop,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28pop%29%29,%20col=%20%22black%22,%20lwd=2%29%20mtext%282,%20text=%22Population%22,%20line=2%29%20par%28new=T%29%20plot%28time,med,axes=F,xlim=c%287000,3400%29,ylim=c%280,max%28med%29%29,%20xlab=%22%22,ylab=%22%22,type=%22l%22,lty=2,lwd=2,%20col=%22black%22,main=%22%22%29%20points%28time,med,pch=20,col=%22black%22%29%20axis%282,%20ylim=c%280,max%28med%29%29,%20col=%20%22black%22,%20lwd=2,line=3.&amp;pics=https://gyuyoungcho.github.io/icons/apple-touch-icon.png&amp;site=GyuYoung%27s%20Blog" title="Share on Qzone" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qrcode">
+                    <div class="qrcode-container" title="Share via QR Code"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qrcode-icon"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg><div id="qrcode-img"></div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+<script>
+    var typeNumber = 0;
+    var errorCorrectionLevel = 'L';
+    var qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData('https:\/\/gyuyoungcho.github.io\/posts\/certificate\/2020-02-13-adp_study14\/');
+    qr.make();
+    document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
+</script>
+
+                </div>
+            
+
+        </div>
+
+    </div>
+
+
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title">See Also:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/posts/certificate/2020-02-16-adsp_remind2/" class="related-link">ADSP 복습 2</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/certificate/2020-02-14-adsp_remind1/" class="related-link">ADSP 복습 1</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/certificate/2020-02-12-adp_study13/" class="related-link">ADP 공부하기 13</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/certificate/2020-02-11-adp_study12/" class="related-link">ADP 공부하기 12</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/certificate/2020-02-08-adp_study11/" class="related-link">ADP 공부하기 11</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+    
+
+
+
+        
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/posts/certificate/2020-02-14-adsp_remind1/" rel="prev">&lt; ADSP 복습 1</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="/posts/certificate/2020-02-12-adp_study13/" rel="next">ADP 공부하기 13 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;1969–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;reuixiy</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+
+            
+    
+        <ul class="socials"><li class="socials-item">
+                    <a href="/rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="mailto:reuixiy@gmail.com" target="_blank" rel="external noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://github.com/reuixiy" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://twitter.com/reuixiy" target="_blank" rel="external noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://t.me/yixiuer" target="_blank" rel="external noopener" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon social-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </li></ul>
+    
+
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    mediumZoom(document.querySelectorAll('div.post-body img'), {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+
+    </body>
+</html>
