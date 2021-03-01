@@ -18,7 +18,7 @@
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.5fb401919eef292b88445dab245b55ecab50f7221e346b5af3d19f708a4ec585.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.7a2ed9c0e4fcfe78d438fbee11b2cad4872f445b35a993fe163d7701986bcfcf.js"></script>
 
     
 
@@ -59,7 +59,6 @@
         "name": "Categories: study4",
         "description": "MemE is a powerful and highly customizable GoHugo theme for personal blogs.",
         "image": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png",
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
         "publisher": {
             "@type": "Organization",
             "name": "GyuYoung's Blog",
@@ -90,7 +89,7 @@
 <meta property="og:description" content="MemE is a powerful and highly customizable GoHugo theme for personal blogs." />
 <meta property="og:url" content="https://gyuyoungcho.github.io/categories/study4/" />
 <meta property="og:site_name" content="GyuYoung&#39;s Blog" />
-<meta property="og:locale" content="en" /><meta property="og:image" content="https://gyuyoungcho.github.io/icons/apple-touch-icon.png" />
+<meta property="og:locale" content="ko" /><meta property="og:image" content="https://gyuyoungcho.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
 
         <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
@@ -183,7 +182,7 @@
         <h2 class="post-title"><a class="summary-title-link"></a></h2>
         <summary class="summary"></summary>
         <div class="read-more-container">
-            <a class="read-more-link">Read More »</a>
+            <a class="read-more-link"> »</a>
         </div>
     </article>
 </template>
@@ -335,6 +334,32 @@
         
 
         
+
+
+    <script>
+    if (typeof MathJax === 'undefined') {
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/mhchem']
+            },
+            
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]},
+                tags: 'ams',
+                packages: {'[+]': ['mhchem']}
+            }
+        };
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+    } else {
+        MathJax.texReset();
+        MathJax.typeset();
+    }
+</script>
 
 
 

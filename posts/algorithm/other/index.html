@@ -18,7 +18,7 @@
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.5fb401919eef292b88445dab245b55ecab50f7221e346b5af3d19f708a4ec585.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.7a2ed9c0e4fcfe78d438fbee11b2cad4872f445b35a993fe163d7701986bcfcf.js"></script>
 
     
 
@@ -54,12 +54,11 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "datePublished": "2021-03-01T00:12:20+09:00",
-        "dateModified": "2021-03-01T00:23:43+09:00",
+        "dateModified": "2021-03-01T00:49:45+09:00",
         "url": "https://gyuyoungcho.github.io/posts/algorithm/other/",
         "name": "Other",
         "description": "MemE is a powerful and highly customizable GoHugo theme for personal blogs.",
         "image": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png",
-        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
         "publisher": {
             "@type": "Organization",
             "name": "GyuYoung's Blog",
@@ -90,7 +89,7 @@
 <meta property="og:description" content="MemE is a powerful and highly customizable GoHugo theme for personal blogs." />
 <meta property="og:url" content="https://gyuyoungcho.github.io/posts/algorithm/other/" />
 <meta property="og:site_name" content="GyuYoung&#39;s Blog" />
-<meta property="og:locale" content="en" /><meta property="og:image" content="https://gyuyoungcho.github.io/icons/apple-touch-icon.png" />
+<meta property="og:locale" content="ko" /><meta property="og:image" content="https://gyuyoungcho.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
 
         <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
@@ -183,7 +182,7 @@
         <h2 class="post-title"><a class="summary-title-link"></a></h2>
         <summary class="summary"></summary>
         <div class="read-more-container">
-            <a class="read-more-link">Read More »</a>
+            <a class="read-more-link"> »</a>
         </div>
     </article>
 </template>
@@ -230,6 +229,12 @@
                         
                         
                             
+                            
+                                
+                            
+                                
+                            
+                                
                             
                                 
                             
@@ -408,11 +413,65 @@
         
 
 
+    <script>
+    if (typeof MathJax === 'undefined') {
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/mhchem']
+            },
+            
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]},
+                tags: 'ams',
+                packages: {'[+]': ['mhchem']}
+            }
+        };
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+    } else {
+        MathJax.texReset();
+        MathJax.typeset();
+    }
+</script>
+
+
 
 
 
 
     
+
+        
+            <script>
+    function loadComments() {
+        if (typeof DISQUS === 'undefined') {
+            var disqus_config = function() {
+                this.page.url = 'https:\/\/gyuyoungcho.github.io\/posts\/algorithm\/other\/';
+                this.page.identifier = '\/posts\/algorithm\/other\/';
+                this.page.title = 'Other';
+            };
+            (function() {
+                var d = document, s = d.createElement('script'); s.async = true;
+                s.src = 'https://.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        } else {
+            DISQUS.reset({
+                reload: true,
+                config: function() {
+                    this.page.url = 'https:\/\/gyuyoungcho.github.io\/posts\/algorithm\/other\/';
+                    this.page.identifier = '\/posts\/algorithm\/other\/';
+                    this.page.title = 'Other';
+                }
+            });
+        }
+    }
+</script>
 
         
 
