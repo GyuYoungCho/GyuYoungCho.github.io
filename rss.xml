@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Wed, 03 Mar 2021 11:54:26 &#43;0900</lastBuildDate>
+        <lastBuildDate>Thu, 04 Mar 2021 16:49:51 &#43;0900</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://gyuyoungcho.github.io/rss.xml" />
         
@@ -316,17 +316,11 @@
                 
                 
                 
-                    <description>&lt;p&gt;` 구현 문제&amp;hellip;?
-더 깔끔한 방법이 있을 것 같지만 잘 생각나지 않아 일일이 계산하는 방식을 택함&amp;hellip;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;for문 3개를 써서 win + lose + draw 가 20일 때 조건 만족&lt;/li&gt;
-&lt;li&gt;확률과 경우의 수 계산
+                    <description>&lt;p&gt;`String을 bfs&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;확률 : $ W^{win} * L^{lose} * D^{draw} $&lt;/li&gt;
-&lt;li&gt;경우의 수 : $ 20! \over (win! * lose! * draw!) $&lt;/li&gt;
+&lt;li&gt;문자열이 나왔는지를 체크하기 위해 Set 활용&lt;/li&gt;
+&lt;li&gt;substiring함수를 이용해 문자열 조작&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;hr&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
