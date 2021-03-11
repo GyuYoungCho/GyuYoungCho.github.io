@@ -3,22 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gyuyoungcho.github.io/posts/programming/frontend/crud_jdbc/</loc>
+    <lastmod>2021-03-11T23:55:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/categories/frontend/</loc>
+    <lastmod>2021-03-11T23:55:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/</loc>
+    <lastmod>2021-03-11T23:55:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/</loc>
+    <lastmod>2021-03-11T23:55:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/categories/programming/</loc>
+    <lastmod>2021-03-11T23:55:44+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_15723_n%EB%8B%A8%EB%85%BC%EB%B2%95/</loc>
     <lastmod>2021-03-08T17:01:20+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/categories/algorithm/</loc>
-    <lastmod>2021-03-08T17:01:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gyuyoungcho.github.io/</loc>
-    <lastmod>2021-03-08T17:01:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gyuyoungcho.github.io/posts/</loc>
     <lastmod>2021-03-08T17:01:20+09:00</lastmod>
   </url>
   
@@ -68,17 +83,7 @@
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/categories/frontend/</loc>
-    <lastmod>2021-03-06T00:00:01+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://gyuyoungcho.github.io/posts/programming/frontend/javascript1/</loc>
-    <lastmod>2021-03-06T00:00:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gyuyoungcho.github.io/categories/programming/</loc>
     <lastmod>2021-03-06T00:00:01+09:00</lastmod>
   </url>
   
