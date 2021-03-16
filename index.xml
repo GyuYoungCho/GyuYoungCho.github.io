@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GyuYoung&#39;s Blog</title>
+    <link>https://gyuyoungcho.github.io/</link>
+    <description>Recent content on GyuYoung&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <managingEditor>rbud613@gmail.com (GyuYoung)</managingEditor>
+    <webMaster>rbud613@gmail.com (GyuYoung)</webMaster>
+    <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+    <lastBuildDate>Tue, 16 Mar 2021 22:50:57 +0900</lastBuildDate><atom:link href="https://gyuyoungcho.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[백준]_3057 좋은친구</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study8/%EB%B0%B1%EC%A4%80_15723_n%EB%8B%A8%EB%85%BC%EB%B2%95-%EB%B3%B5%EC%82%AC%EB%B3%B8/</link>
+      <pubDate>Tue, 16 Mar 2021 22:50:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study8/%EB%B0%B1%EC%A4%80_15723_n%EB%8B%A8%EB%85%BC%EB%B2%95-%EB%B3%B5%EC%82%AC%EB%B3%B8/</guid>
+      <description>` queue 활용
+  K범위 내에 n명이 있다면 $_{n} \mathrm{C}_{2}$
+ $_{n} \mathrm{C}_{2} = n(n-1) / 2 = 1 + 2 + &amp;hellip; n-1 $ 위에서 얻은 아이디어는 n번째 사람을 큐에 넣기 전에 n-1을 더하는 식을 생각    300000명의 이름의 길이가 모두 같을 경우를 생각해보면 int 범위를 넘어감.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_18188 다오의 데이트</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study8/%EB%B0%B1%EC%A4%80_18188%EB%8B%A4%EC%98%A4%EC%9D%98%EB%8D%B0%EC%9D%B4%ED%8A%B8/</link>
+      <pubDate>Tue, 16 Mar 2021 18:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study8/%EB%B0%B1%EC%A4%80_18188%EB%8B%A4%EC%98%A4%EC%9D%98%EB%8D%B0%EC%9D%B4%ED%8A%B8/</guid>
+      <description>` dfs 문제
+  움직임이 가능한 부분부터 탐색하고 찾지 못하면 return
+  지나쳐서 다시 오는거도 된다고 했지만 그냥 바로 출력함.
+   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100  import java.</description>
+    </item>
+    
+    <item>
+      <title>시계열 데이터 이해</title>
+      <link>https://gyuyoungcho.github.io/posts/data_science/time_series/hello/</link>
+      <pubDate>Mon, 15 Mar 2021 17:11:41 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/data_science/time_series/hello/</guid>
+      <description>시계열 데이터  시계열 데이터 요소   추세(Trend): 장기적으로 나타나는 변동 패턴 계절성(Seasonal): 주,월,분기,반기 단위 등 이미 알려진 시간의 주기로 나타나는 패턴 주기(Cyclic): 고정된 기간이 아닌 장기적인 변동 랜덤요소 (random/residual/remainder)  `비정상 시계열이란 위의 4가지 패턴이 들어가 있는 경우를 말하고 이 요소들을 제거하고 정상화하는 것이 필수적이다.</description>
+    </item>
+    
+    <item>
+      <title>Python_Programming1</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/python/python_programming1/</link>
+      <pubDate>Mon, 15 Mar 2021 16:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/python/python_programming1/</guid>
+      <description>Python Basic lambda 함수를 간단하게 표현. 일회성을 지님
+lambda 인자 : 표현식
+1 2  (lambda x,y: x + y)(10, 20) # 30    map 리스트로부터 원소를 하나씩 꺼내서 함수를 적용하고 새로운 리스트에 담음
+map(함수, 리스트)
+1 2  list(map(lambda x: x ** 2, range(5))) # [0, 1, 4, 9, 16]    reduce 순서형 자료(문자열, 리스트, 튜플 )의 원소를 순서대로 함수에 적용</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1937_욕심쟁이 판다</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_1937_%EC%9A%95%EC%8B%AC%EC%9F%81%EC%9D%B4%ED%8C%90%EB%8B%A4/</link>
+      <pubDate>Fri, 12 Mar 2021 14:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_1937_%EC%9A%95%EC%8B%AC%EC%9F%81%EC%9D%B4%ED%8C%90%EB%8B%A4/</guid>
+      <description>` Dfs + memoization
+ dfs로만 풀 경우 시간초과 남 -&amp;gt; 정보를 저장해 다음 탐색 때 이전 값을 활용   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59  package com.</description>
+    </item>
+    
+    <item>
+      <title>CRUD and JDBC</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/frontend/crud_jdbc/</link>
+      <pubDate>Thu, 11 Mar 2021 23:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/frontend/crud_jdbc/</guid>
+      <description>DML Insert 1 2  insert into member (name1, name2, ....) values (val1, val2...);   ` Auto increment : primary key에서 자동으로 데이터 개수를 알 수 있도록
+Update 1 2  update table set name1 = val1, [name2 = val2...namen = valn] where name = &amp;#39;a&amp;#39;    Where 생략하면 모든 데이터가 바뀜  Delete 1 2  delete from table where name = &amp;#39;a&amp;#39;   Select 1  select a from table where condition    : 모든 열  distinct : 중복 행 제거</description>
+    </item>
+    
+    <item>
+      <title>[백준]_20544_공룡게임</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_20544_%EA%B3%B5%EB%A3%A1/</link>
+      <pubDate>Thu, 11 Mar 2021 18:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_20544_%EA%B3%B5%EB%A3%A1/</guid>
+      <description>` dp문제
+ 위치, 현재 높이(now), 이전 높이(before) 로 3차원 배열 2개 모든 경우를 구한 것과 2높이가 없는 경우를 구해 차이를 구함  현재 높이와 과거 높이를 보고 다음에 올 수 있는 높이의 경우를 구하는 식임
+처음에 java로 풀었는데 시간초과 떠서 python으로 하니 통과됐다.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2168_타일 위의 대각선</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_2168_%ED%83%80%EC%9D%BC/</link>
+      <pubDate>Thu, 11 Mar 2021 14:15:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_2168_%ED%83%80%EC%9D%BC/</guid>
+      <description>`
+예시에서 8 12 -&amp;gt; 16
+8과 12의 최대공약수는 4이고 최대공약수로 나눈 타일에서 대각선 포함 타일 * 최대공약수를 해주면 됨.
+n과 m이 서로소일 경우 n이 크든 m이 크든 상관 없이 n+m-1개의 타일 개수가 포함되는 것을 알 수 있었음.
+ python 풀이
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76  def sol(n, now, before): global MOD_NUM if n == 0: // 처음에 시작 높이 1 if now == 0: dp[n][now][before] = 1 else: dp[n][now][before] = 0 return dp[n][now][before] if dp[n][now][before] == -1: a1, a2, a3 = 0, 0, 0 // 높이가 0일 경우 다음꺼 상관x if now == 0: a1 = sol(n - 1, 0, now)% MOD_NUM a2 = sol(n - 1, 1, now)% MOD_NUM a3 = sol(n - 1, 2, now)% MOD_NUM elif now == 1: //현재 1 if before == 0: // 이전 높이가 0이면 아무거나 올 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_15723_n단논법</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_15723_n%EB%8B%A8%EB%85%BC%EB%B2%95/</link>
+      <pubDate>Mon, 08 Mar 2021 18:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_15723_n%EB%8B%A8%EB%85%BC%EB%B2%95/</guid>
+      <description>` graph 문제
+  처음에 그래프를 만드는 식으로 하려 했으나 a-&amp;gt;b, a-&amp;gt;c는 불가능하고 a-&amp;gt;c, b-&amp;gt;c는 가능하다.
+  따라서 각 알파벳에 대해 부모를 지정해주면 배열로 처리할 수 있음.
+   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2023_신기한소수</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_2023_%EC%8B%A0%EA%B8%B0%ED%95%9C%EC%86%8C%EC%88%98/</link>
+      <pubDate>Sun, 07 Mar 2021 21:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study7/%EB%B0%B1%EC%A4%80_2023_%EC%8B%A0%EA%B8%B0%ED%95%9C%EC%86%8C%EC%88%98/</guid>
+      <description>` brute force + Backtracking
+ 처음에 에라토스테네스의 체로 문제를 풀었고 역시나 메모리 초과가 떠서 소수 판별 방식 재구성   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_13915_현수의 열기구 교실</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_13915_%ED%98%84%EC%88%98%EC%97%B4%EA%B8%B0%EA%B5%AC/</link>
+      <pubDate>Sat, 06 Mar 2021 20:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_13915_%ED%98%84%EC%88%98%EC%97%B4%EA%B8%B0%EA%B5%AC/</guid>
+      <description>`     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_16464_가주아</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_16464_%EA%B0%80%EC%A3%BC%EC%95%84/</link>
+      <pubDate>Sat, 06 Mar 2021 20:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_16464_%EA%B0%80%EC%A3%BC%EC%95%84/</guid>
+      <description>`
+ 홀수는 n +(n+1)로 표현가능 짝수의 경우 다음과 같이 생각할 수 있다.  $6 = 2+2+2$ 에서 앞 뒤로 1을 빼고 더하면 $1+2+3$ $14 = 2*7 = (-1+0+1)+2+3+4+5 = 2+3+4+5$    그렇다면 12인 경우 답은 3+4+5인데 2+2+2+2+2+2에서 위와 같이 하긴 힘들다.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_18233_러버덕을 사랑하는 모임</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_18233_%EB%9F%AC%EB%B2%84%EB%8D%95/</link>
+      <pubDate>Sat, 06 Mar 2021 20:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_18233_%EB%9F%AC%EB%B2%84%EB%8D%95/</guid>
+      <description>` dfs 문제
+ min과 max를 구해 E가 범위 안에 있기만 하면 답을 바로 구할 수 있음   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1904_01타일</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_1904_01%ED%83%80%EC%9D%BC/</link>
+      <pubDate>Sat, 06 Mar 2021 20:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_1904_01%ED%83%80%EC%9D%BC/</guid>
+      <description>` dp문제
+규칙을 구해보면 피보나치 수열이 나오는 것을 알 수 있음.
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  import java.io.BufferedReader; import java.io.IOException; import java.io.InputStreamReader; import java.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript1</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/frontend/javascript1/</link>
+      <pubDate>Fri, 05 Mar 2021 19:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/frontend/javascript1/</guid>
+      <description>JavaScript 선언 &amp;lt;body&amp;gt; 안에 위치하면 브라우저가 html부터 해석하여 화면에 그리기 때문에 빠르다고 느낄 수 있어서 보통 body안 맨 밑에 삽입하는 경향임.
+`html과 연결하기
+1 2 3 4  외부 &amp;lt;script language=&amp;#34;text/javascript&amp;#34; src=&amp;#34;외부 스크립트 파일의 URL&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 내부 &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;   데이터 타입 primitive</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1003_피보나치 함수</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_1003_%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%ED%95%A8%EC%88%98/</link>
+      <pubDate>Wed, 03 Mar 2021 11:46:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_1003_%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98%ED%95%A8%EC%88%98/</guid>
+      <description>` 다이나믹 프로그래밍
+N=3 일때
+$fibo(3) = fibo(2) + fibo(1) = (fibo(1) + fibo(0)) + fibo(1)$ 이라 할 수 있다.
+또한 계속 구해보면
+ fibo(0)은 1,0,1,1,2,3,5&amp;hellip;. fibo(1)은 0,1,1,2,3,5&amp;hellip;. 으로 피보나치 함수 형태를 띄는 것을 알 수 있다.   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_12025_장난꾸러기 영훈이</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_12025_%EC%9E%A5%EB%82%9C%EA%BE%B8%EB%9F%AC%EA%B8%B0%EC%98%81%ED%9B%88%EC%9D%B4/</link>
+      <pubDate>Wed, 03 Mar 2021 08:46:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_12025_%EC%9E%A5%EB%82%9C%EA%BE%B8%EB%9F%AC%EA%B8%B0%EC%98%81%ED%9B%88%EC%9D%B4/</guid>
+      <description>` 이진법을 활용한 방법
+01로 이진수를 만들듯이 16과 27을 각각 이진수처럼 생각하여 풀이
+ 1267이 나오는 자리 수 및 개수 저장, 67은 12로 바꿈 $2^{1267개수} &amp;lt; K - 1$ 이면 -1 출력 K/2를 계속 하면서 나머지가 1이면 12를 67로 바꾼다.   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1327_소트게임</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_1327_%EC%86%8C%ED%8A%B8%EA%B2%8C%EC%9E%84/</link>
+      <pubDate>Tue, 02 Mar 2021 12:06:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_1327_%EC%86%8C%ED%8A%B8%EA%B2%8C%EC%9E%84/</guid>
+      <description>`String을 bfs
+ 문자열이 나왔는지를 체크하기 위해 Set 활용 substiring함수를 이용해 문자열 조작   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2529_부등호</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_2529_%EB%B6%80%EB%93%B1%ED%98%B8/</link>
+      <pubDate>Mon, 01 Mar 2021 21:25:57 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_2529_%EB%B6%80%EB%93%B1%ED%98%B8/</guid>
+      <description>`
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_14613_너의 티어는</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_14613_%EB%84%88%EC%9D%98%ED%8B%B0%EC%96%B4%EB%8A%94/</link>
+      <pubDate>Sat, 27 Feb 2021 13:06:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study6/%EB%B0%B1%EC%A4%80_14613_%EB%84%88%EC%9D%98%ED%8B%B0%EC%96%B4%EB%8A%94/</guid>
+      <description>` 구현 문제&amp;hellip;? 더 깔끔한 방법이 있을 것 같지만 잘 생각나지 않아 일일이 계산하는 방식을 택함&amp;hellip;
+ for문 3개를 써서 win + lose + draw 가 20일 때 조건 만족 확률과 경우의 수 계산  확률 : $ W^{win} * L^{lose} * D^{draw} $ 경우의 수 : $ 20!</description>
+    </item>
+    
+    <item>
+      <title>[백준]_18119_단어암기</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_18119_%EB%8B%A8%EC%96%B4%EC%95%94%EA%B8%B0/</link>
+      <pubDate>Mon, 22 Feb 2021 23:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_18119_%EB%8B%A8%EC%96%B4%EC%95%94%EA%B8%B0/</guid>
+      <description>`brute force + 비트마스킹
+그냥 풀면 시간 초과날거 같아서 비트마스킹을 사용해보려 했는데 어떻게 할지 잘 몰라서 찾아봤다&amp;hellip;.
+ 단어에서 알파벳의 자리수를 and/or 연산을 통해 비트를 켜고 끄고 26개의 1비트를 만들어 비교하는 방식을 찾아 적용해 봄   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_16234_인구이동</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_16234_%EC%9D%B8%EA%B5%AC%EC%9D%B4%EB%8F%99/</link>
+      <pubDate>Mon, 22 Feb 2021 20:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_16234_%EC%9D%B8%EA%B5%AC%EC%9D%B4%EB%8F%99/</guid>
+      <description>`bfs
+ 처음에 너무 어렵게 생각해서 Map이랑 Set을 막 써보다 결국 Map 안에 Set을 넣는 경지까지 이르러버림. 방문 여부를 bfs 안에서 방문 여부랑 전체 방문 여부를 생각했는데 하나만 해줘도 되었다.   처음 짠 코드(1500ms정도)
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_11501_주식</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_11501_%EC%A3%BC%EC%8B%9D/</link>
+      <pubDate>Sun, 21 Feb 2021 13:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_11501_%EC%A3%BC%EC%8B%9D/</guid>
+      <description>`stack 이용 문제
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1780_종이의 개수</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_1780_%EC%A2%85%EC%9D%B4%EC%9D%98%EA%B0%9C%EC%88%98/</link>
+      <pubDate>Sun, 21 Feb 2021 11:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_1780_%EC%A2%85%EC%9D%B4%EC%9D%98%EA%B0%9C%EC%88%98/</guid>
+      <description>`divide and conquer
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_18291_비요뜨의 징검다리 건너기</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_18291_%EB%B9%84%EC%9A%94%EB%9C%A8%EC%9D%98-%EC%A7%95%EA%B2%80%EB%8B%A4%EB%A6%AC-%EA%B1%B4%EB%84%88%EA%B8%B0/</link>
+      <pubDate>Sat, 20 Feb 2021 22:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_18291_%EB%B9%84%EC%9A%94%EB%9C%A8%EC%9D%98-%EC%A7%95%EA%B2%80%EB%8B%A4%EB%A6%AC-%EA%B1%B4%EB%84%88%EA%B8%B0/</guid>
+      <description>`divide and conquer
+1과 4 사이의 숫자 조합 개수를 출력하는 문제(2의 거듭제곱)
+ 처음에 divide(x/2) * divide(x/2) * (x%2+1) 로 제출하다가 시간초과됨   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2841_외계인의 기타 연주</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_2841_%EC%99%B8%EA%B3%84%EC%9D%B8/</link>
+      <pubDate>Sat, 20 Feb 2021 20:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study5/%EB%B0%B1%EC%A4%80_2841_%EC%99%B8%EA%B3%84%EC%9D%B8/</guid>
+      <description>`stack 이용 문제
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1654_랜선자르기</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1654_%EB%9E%9C%EC%84%A0%EC%9E%90%EB%A5%B4%EA%B8%B0/</link>
+      <pubDate>Tue, 16 Feb 2021 23:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1654_%EB%9E%9C%EC%84%A0%EC%9E%90%EB%A5%B4%EA%B8%B0/</guid>
+      <description>`Binary search
+저번 스터디를 통해 이분 탐색을 알게 되었고 조건식 및 부등호 여부만 잘 생각하면 되는 문제였다.
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_18119_단어암기</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1068_%ED%8A%B8%EB%A6%AC/</link>
+      <pubDate>Mon, 15 Feb 2021 20:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1068_%ED%8A%B8%EB%A6%AC/</guid>
+      <description>`Tree 탐색
+저번 스터디를 통해 트리를 만들어 본 걸 이용해서 해결
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_19583_싸이버개강총회</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_19583_%EC%8B%B8%EC%9D%B4%EB%B2%84%EA%B0%9C%EA%B0%95%EC%B4%9D%ED%9A%8C/</link>
+      <pubDate>Sun, 14 Feb 2021 15:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_19583_%EC%8B%B8%EC%9D%B4%EB%B2%84%EA%B0%9C%EA%B0%95%EC%B4%9D%ED%9A%8C/</guid>
+      <description>`map을 이용해 구현
+처음부터 시뮬레이션 하듯이 스트리밍 전, 후~종료 에 대한 처리를 순차적으로 함.
+아예 안 들어오는 경우를 생각 안 했다가 br.readline == null 을 넣고 해결
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1052_물병</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1052_%EB%AC%BC%EB%B3%91/</link>
+      <pubDate>Sun, 14 Feb 2021 12:55:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1052_%EB%AC%BC%EB%B3%91/</guid>
+      <description>`.
+물병을 2의 배수만큼 만들 수 있어서 이진법으로 쪽으로 생각하다가 2를 나누면서 나오는 1의 개수가 물병 개수라고 생각할 수 있었음.
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1080_행렬</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1080_%ED%96%89%EB%A0%AC/</link>
+      <pubDate>Sat, 13 Feb 2021 23:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study4/%EB%B0%B1%EC%A4%80_1080_%ED%96%89%EB%A0%AC/</guid>
+      <description>`greedy
+greedy한 문제를 풀고 싶어서 내가 선택한 문제. 단순히 처음부터 검사해서 다르면 전환해서 풀면 되는 문제였다.
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1174_줄어드는 숫자</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_1174_%EC%A4%84%EC%96%B4%EB%93%9C%EB%8A%94%EC%88%AB%EC%9E%90/</link>
+      <pubDate>Tue, 09 Feb 2021 23:01:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_1174_%EC%A4%84%EC%96%B4%EB%93%9C%EB%8A%94%EC%88%AB%EC%9E%90/</guid>
+      <description>`브루트 포스 + 백트래킹
+예시가 너무해서 찾다가 유사한 다른 문제를 찾았다
+https://www.acmicpc.net/problem/1038
+  조합을 구했을 때 모든 수가 중복되지 않아 그것을 큰 순서로 나열했을 때 모두 줄어드는 숫자라 할 수 있다.
+  $_{n} \mathrm{C}_{0} + _{n} \mathrm{C}_{1} + &amp;hellip; + _{n} \mathrm{C}_{n} = 2^n$ 이기 때문에 하나도 뽑지 않을 경우를 제외한 1023가지의 경우의 수 밖에 나올 수 없음.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1106_호텔</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_1106_%ED%98%B8%ED%85%94/</link>
+      <pubDate>Sun, 07 Feb 2021 12:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_1106_%ED%98%B8%ED%85%94/</guid>
+      <description>`Dynamic Programming
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_11652_카드</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_11652_%EC%B9%B4%EB%93%9C/</link>
+      <pubDate>Wed, 03 Feb 2021 17:06:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_11652_%EC%B9%B4%EB%93%9C/</guid>
+      <description>`map을 사용하여 구현하는 방식의 문제.
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_7562_나이트의이동, 2178_미로 탐색</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_7562_%EB%82%98%EC%9D%B4%ED%8A%B8%EC%9D%98%EC%9D%B4%EB%8F%99_2178_%EB%AF%B8%EB%A1%9C-%ED%83%90%EC%83%89/</link>
+      <pubDate>Wed, 03 Feb 2021 13:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study3/%EB%B0%B1%EC%A4%80_7562_%EB%82%98%EC%9D%B4%ED%8A%B8%EC%9D%98%EC%9D%B4%EB%8F%99_2178_%EB%AF%B8%EB%A1%9C-%ED%83%90%EC%83%89/</guid>
+      <description>`BFS
+BFS를 알게 되고 나서 거의 처음 풀어본 문제들. 두 문제의 탐색 방향과 미로 탐색에서 배열을 받아서 푼 것 이외에는 풀이가 거의 비슷하다.
+ 나이트의 이동
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2606_바이러스</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_2606_%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/</link>
+      <pubDate>Tue, 02 Feb 2021 17:06:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_2606_%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4/</guid>
+      <description>`비선형 자료구조인 graph를 구현하여 DFS를 해보는 문제
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  public class B2606_바이러스 { static ArrayList&amp;lt;Integer&amp;gt;[] a; static boolean[] visit; static int count; public static void main(String[] args) throws NumberFormatException, IOException { BufferedReader br = new BufferedReader(new InputStreamReader(System.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2621_카드게임</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_2621_%EC%B9%B4%EB%93%9C%EA%B2%8C%EC%9E%84/</link>
+      <pubDate>Mon, 01 Feb 2021 23:05:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_2621_%EC%B9%B4%EB%93%9C%EA%B2%8C%EC%9E%84/</guid>
+      <description>`조건에 맞도록 구현하는 문제
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93  import java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_1072_게임</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_1072_%EA%B2%8C%EC%9E%84/</link>
+      <pubDate>Mon, 01 Feb 2021 12:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_1072_%EA%B2%8C%EC%9E%84/</guid>
+      <description>`Binary search 문제
+이분 탐색을 처음 접한 문제
+ left와 right 지정. right는 Y가 X보다 클 수 없기 때문에 X로 지정 left와 right의 가운데 값을 구한 뒤 승률을 구함 승률이 크면 right를 낮추고 아니면 left를 높인다. 최소값을 구하기 때문에 left가 lower bound가 될 것이므로 left 반환   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35  import java.</description>
+    </item>
+    
+    <item>
+      <title>OOP3</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/java/oop3/</link>
+      <pubDate>Sun, 31 Jan 2021 18:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/java/oop3/</guid>
+      <description>` 상속과 다형성에 대해 알아보자
+Inheritance B가 A의 member variables과 method를 그대로 받으면 상속받는다고 하고 부모-자식, 상위-하위 관계이다.
+ 기존의 클래스에서 자산(변수,메서드)을 자식 클래스에서 재사용 → 코드의 절감 접근 제한자에 상관없이 상속되지만 자식에게 보이지 않을 뿐.. 어떤 Class가 아무런 상속을 받지 않을 경우, 자동으로 java.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_15651_15656_N과M3,7</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_15651_15656_nm/</link>
+      <pubDate>Sat, 30 Jan 2021 13:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/study2/%EB%B0%B1%EC%A4%80_15651_15656_nm/</guid>
+      <description>`BFS
+BFS를 알게 되고 나서 거의 처음 풀어본 문제들. 두 문제의 탐색 방향과 미로 탐색에서 배열을 받아서 푼 것 이외에는 풀이가 거의 비슷하다.
+ N과 M(3)
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44  import java.</description>
+    </item>
+    
+    <item>
+      <title>OOP2</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/java/oop2/</link>
+      <pubDate>Tue, 26 Jan 2021 18:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/java/oop2/</guid>
+      <description>` 상속과 다형성에 대해 알아보자
+Inheritance B가 A의 member variables과 method를 그대로 받으면 상속받는다고 하고 부모-자식, 상위-하위 관계이다.
+ 기존의 클래스에서 자산(변수,메서드)을 자식 클래스에서 재사용 → 코드의 절감 접근 제한자에 상관없이 상속되지만 자식에게 보이지 않을 뿐.. 어떤 Class가 아무런 상속을 받지 않을 경우, 자동으로 java.</description>
+    </item>
+    
+    <item>
+      <title>정렬, 람다식</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/sort/%EC%A0%95%EB%A0%AC-%EB%9E%8C%EB%8B%A4%EC%8B%9D/</link>
+      <pubDate>Sun, 24 Jan 2021 13:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/sort/%EC%A0%95%EB%A0%AC-%EB%9E%8C%EB%8B%A4%EC%8B%9D/</guid>
+      <description>정렬 ` 정렬해 보았다.
+ 람다식 Arrays.sort는 2차원 배열은 정렬할 수 없다. 이를 람다식을 이용해 해결할 수 있다.
+예시로 좌표 정렬하기를 풀어보았고 아래는 정렬 부분 코드이다.
+1 2 3 4 5 6  Arrays.sort(arr1, (e1, e2) -&amp;gt;{ if(e1[0]==e2[0]) return e1[1] - e2[1]; else return e1[0] - e2[0]; });   다음은 단어 정렬에 사용한 코드이다.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_15552_빠른A&#43;B(입출력 문제)</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/other/%EB%B0%B1%EC%A4%80_15552_%EB%B9%A0%EB%A5%B8a&#43;b/</link>
+      <pubDate>Sat, 23 Jan 2021 15:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/other/%EB%B0%B1%EC%A4%80_15552_%EB%B9%A0%EB%A5%B8a&#43;b/</guid>
+      <description>` 자바에서 입출력에 관련해서 다뤄보겠다. 기본적으로 사용한 코드의 문제점은 다음과 같다.
+ 입력이 많을 경우, Scanner의 문제 출력이 많을 경우 ,System.out의 문제  몇몇 문제의 경우 위의 문제가 해결되지 않을 경우 시간초과가 난다고 하여 BufferedReader, StringBuilder 등을 알게 되어 사용법을 공부하였다.
+BufferedReader 버퍼를 사용하여 입력을 받고 한 번에 전송하는 방식을 사용하여 하나씩 전송하는 Scanner보다 효과적임.</description>
+    </item>
+    
+    <item>
+      <title>OOP1</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/java/oop1/</link>
+      <pubDate>Fri, 22 Jan 2021 23:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/java/oop1/</guid>
+      <description>OOP ` 우리는 객체 지향적 삶을 살고 있고 그러한 현실을 프로그래밍에 반영하려고 함.
+장점
+ 객체 교체(유지 보수)에 좋음 재사용성  OOP의 특징 OOP is A P.I.E
+  Abstraction : 특징 추출
+→ 현실의 객체(프로그램의 대상으로 삼는 것)를 추상화해서 class를 만들고 이를 구체화해서 object를 만든다.</description>
+    </item>
+    
+    <item>
+      <title>Java_Programming2</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/java/java_programming2/</link>
+      <pubDate>Thu, 21 Jan 2021 19:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/java/java_programming2/</guid>
+      <description>배열 for each Array 1 2 3 4 5  int arr [] = {1,2,3,4,5}; for(int x : arr){ System.out.println(x); }   Array is immutable  크기 변경 불가 변경이 필요할 경우 새로 작성  arraycopy
+1 2 3 4  String [] students = { &amp;#34;홍길동&amp;#34;, &amp;#34;박사&amp;#34;, &amp;#34;윤식당&amp;#34;, &amp;#34;나오기&amp;#34; }; String [] students3 = new String[5]; System.</description>
+    </item>
+    
+    <item>
+      <title>[백준]_2579_계단오르기</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/dynamic_programming/%EB%B0%B1%EC%A4%80_2579_%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/</link>
+      <pubDate>Wed, 20 Jan 2021 00:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/dynamic_programming/%EB%B0%B1%EC%A4%80_2579_%EA%B3%84%EB%8B%A8%EC%98%A4%EB%A5%B4%EA%B8%B0/</guid>
+      <description>`위 문제 유형은 Dynamic Programming이다. 규칙을 찾아서 적용하면 되겠다.
+과정   선언
+ 2*n 의 최대값이 246912이므로 246913의 소수 여부 배열(boolean) 위와 같은 크기의 int배열 선언하여 1부터 소수가 몇 개 있는지 저장    값 할당
+ 에라토스테네스 체 원리 이용하여 소수 여부를 true로 바꿈 2부터 반복문을 이용해 false가 나올 때마다 count를 올려주는 식으로 코드를 구성    최종 풀이</description>
+    </item>
+    
+    <item>
+      <title>[백준]_4948_베르트랑공준</title>
+      <link>https://gyuyoungcho.github.io/posts/algorithm/math/%EB%B0%B1%EC%A4%80_4948_%EB%B2%A0%EB%A5%B4%ED%8A%B8%EB%9E%91%EA%B3%B5%EC%A4%80/</link>
+      <pubDate>Wed, 20 Jan 2021 00:31:06 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/algorithm/math/%EB%B0%B1%EC%A4%80_4948_%EB%B2%A0%EB%A5%B4%ED%8A%B8%EB%9E%91%EA%B3%B5%EC%A4%80/</guid>
+      <description>위의 문제를 풀기 위해 에라토스테네스의 체의 원리를 이용했다. 에라토스테네스의 체는 소수를 구하기 위한 알고리즘 중 가장 성능이 좋은 방법으로, 소수의 배수를 거름으로써 건너뛰는 작업이 많아진다.
+과정   선언
+ 2*n 의 최대값이 246912이므로 246913의 소수 여부 배열(boolean) 위와 같은 크기의 int배열 선언하여 1부터 소수가 몇 개 있는지 저장    값 할당</description>
+    </item>
+    
+    <item>
+      <title>Java_Programming1</title>
+      <link>https://gyuyoungcho.github.io/posts/programming/java/java_programming1/</link>
+      <pubDate>Tue, 19 Jan 2021 16:12:07 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/programming/java/java_programming1/</guid>
+      <description>Java Basic 환경
+ jdk : 소프트웨어 개발 jre : 실행 환경  다음 파일(HelloWorld.java)를 커멘드 상 실행하기 1 2 3 4 5 6 7  package com.ss.java_basic1 public class HelloWorld { public static void main(String[] args){ System.out.println(&amp;#34;Hello World&amp;#34;); } }    javac -d .</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://gyuyoungcho.github.io/posts/test/</link>
+      <pubDate>Mon, 18 Jan 2021 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/test/</guid>
+      <description>HI! 이사했어 </description>
+    </item>
+    
+    <item>
+      <title>ADSP 복습 2</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-16-adsp_remind2/</link>
+      <pubDate>Sun, 16 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-16-adsp_remind2/</guid>
+      <description>데이터 분석 R기초와 데이터 마트 R언어와 문법 데이터 구조  벡터 : 하나의 스칼라값, 하나 이상의 스칼라 원소(동일한 자료형) 행렬 -&amp;gt; matrix 데이터 프레임 -&amp;gt; data.frame(incom=a1,car=b1) 배열 -&amp;gt; array(1:12, dim=c(3,4)) 리스트 : list(name=&amp;ldquo;a&amp;rdquo;,height=123)  기초 함수  solve : 역행렬 cov, cor : 공분산, 상관계수 substr(char,num1,num2) : num1번째에서 num2번째 계산 format(sys.</description>
+    </item>
+    
+    <item>
+      <title>ADSP 복습 1</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-14-adsp_remind1/</link>
+      <pubDate>Fri, 14 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-14-adsp_remind1/</guid>
+      <description>데이터의 이해 데이터와 정보 데이터 유형   정성적 : 언어, 문자
+  정량적 : 수치, 도형, 기호
+  암묵지 : 학습과 체험을 통해 개인에게 습득되지만 겉으로 드러나지 않는 상태의 지식
+  형식지 : 암묵지가 문서 등으로 표출되어 공유할 수 있는 지식</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 14</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/</link>
+      <pubDate>Thu, 13 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-13-adp_study14/</guid>
+      <description>다축 생성 다축 생성 절차  첫 번째 그래프 생성(축을 지정하지 않은 그래프) 점 추가 y축 생성 y축 이름 지정 두번째 그래프 생성 점 추가 y축 생성 y축 이름 지정 세 번째 그래프 생성 y축 생성 점 추가 y축 이름 지정 x축 생성 및 이름 지정 사용자화  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  plot(time,pop,axes=F,xlim=c(7000,3400),ylim=c(0,max(pop)), xlab=&amp;#34;&amp;#34;,ylab=&amp;#34;&amp;#34;,type=&amp;#34;l&amp;#34;,col=&amp;#34;black&amp;#34;,main=&amp;#34;&amp;#34;) points(time,pop,pch=20,col=&amp;#34;black&amp;#34;) axis(2, ylim=c(0,max(pop)), col= &amp;#34;black&amp;#34;, lwd=2) mtext(2, text=&amp;#34;Population&amp;#34;, line=2) par(new=T) plot(time,med,axes=F,xlim=c(7000,3400),ylim=c(0,max(med)), xlab=&amp;#34;&amp;#34;,ylab=&amp;#34;&amp;#34;,type=&amp;#34;l&amp;#34;,lty=2,lwd=2, col=&amp;#34;black&amp;#34;,main=&amp;#34;&amp;#34;) points(time,med,pch=20,col=&amp;#34;black&amp;#34;) axis(2, ylim=c(0,max(med)), col= &amp;#34;black&amp;#34;, lwd=2,line=3.</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 13</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-12-adp_study13/</link>
+      <pubDate>Wed, 12 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-12-adp_study13/</guid>
+      <description>시각화 구현 개요 빅데이터 시각화 구현  시각화함으로써 데이터의 분포와 성격에 대해 한 눈에 알기 쉬워 인사이트를 얻기 좋다  대표적 시각화 방법  시각화 플랫폼   전문 시각화, 시각적 분석 플랫폼은 주로 BI, 인텔리전스 분야에서 사용  기업별 대표 제품</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 12</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-11-adp_study12/</link>
+      <pubDate>Tue, 11 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-11-adp_study12/</guid>
+      <description>시각화 방법 시각화 방법 개념 정보 구조화  정보 조직화   데이터를 수집, 정제하는 과정이 적절히 배분되지 않는다면 제대로 된 결과물을 도출하기 어려움 데이터 수집, 분류, 배열, 관계맺기의 과정을 거침 조직화해 배치할 때 정보의 가치와 유용성은 증가하고 전하는 이야기도 달라진다. 데이터 munging : 원 데이터의 구문을 분석, 정리하고 집단으로 묶거나 변환해 패턴을 식별  데이터 수집 및 탐색   원 데이터를 바탕으로 필요한 데이터를 추출하고 활용하는 절차를 거쳐야 함 데이터 editing : 유의미, 무의미한 데이터 선별   분류</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 11</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-08-adp_study11/</link>
+      <pubDate>Sat, 08 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-08-adp_study11/</guid>
+      <description>시각화 디자인 시각화의 정의 1.데이터 시각화의 중요성 시각화란?
+ 매우 광범위하게 분산된 방대한 양의 자료를 분석하여 한 눈에 볼 수 있도록 도표나 차트 등으로 정리 통찰력을 얻기 위해서는 시각화한 서비스가 필요  2.데이터 시각화의 목적  데이터 분석, 의사소통  3.효과  정보를 습득하는 시간을 절감, 즉각적인 상황 판단 흥미를 유발하고 정보의 빠른 확산 기대 자료를 기억하기 쉬움  시각 이해와 시각화 1.</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 10</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-02-01-adp_study10/</link>
+      <pubDate>Sat, 01 Feb 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-02-01-adp_study10/</guid>
+      <description>활용  내부에서 적용   활용되는 과정에서 새로운 통찰을 찾을 수도 있고 기존 통찰에서 부족한 점을 보완할 수 있다. 새로운 문제 해결 방식 도입과 구체적인 탐색과 발전의 과정 새로운 변인을 추가하거나 관련된 상수값을 보정, 서비스 개선 요소의 모델을 발견해 실행에 옮길 수도 있음 통찰은 보통 형태가 없어 시각화하는 것이 중요하다.</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 9</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-31-adp_study9/</link>
+      <pubDate>Fri, 31 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-31-adp_study9/</guid>
+      <description>시각화 인사이트 프로세스 시각화 인사이트 프로세스 의미 사전적 의미로 정보, 인과관계, 본질 , 이해
+DIKW피라미드 데이터 : 개별적 기초 자료(원자료) EX 강수량 정보 : 데이터 간의 관계(상관,인과 관계) EX 지역별 연간 강수량 지식 : 다양한 정보가 상위 관계를 맺고 조직화 EX A마을의 수해대책 지혜 : 개인화된 지식,경험 등과 관계를 맺을 때 구조화되어 나타남 EX A마을 주민 개개인의 생활 노하우</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 8</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-30-adp_study8/</link>
+      <pubDate>Thu, 30 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-30-adp_study8/</guid>
+      <description>분산 컴퓨팅 기술 MapReduce 개념
+ 구글에서 분산 병렬 컴퓨팅을 이용하여 2004년 논문에서 공개됨 분할정복 방식으로 대용량 데이터를 병렬로 처리할 수 있는 모델  분할정복 : 성질이 같은 여러 부분으로 나눠 해결한 뒤 원래 문제의 해를 구함   c++,JAVA 적용, 아파치 하둡의 Hadoop MapReduce가 동일한 기능 클라이언트의 작업 단위는 맵리듀스 잡 map, reuce task로 나뉨 map task 하나가 1개의 블록을 대상으로 연산, 사용자가 지정한 개수에 해당하는 reduce task들이 받아 정렬 및 필터링 작업을 거침  구글 맵리듀스  복잡성을 추상화시켜 핵심 기능 구현에만 집중하게 함 map에는 key와 value 쌍들을 입력으로 받음 map함수를 거치면서 다수의 새로운 key, value로 변환 reduce로 전동됨.</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 7</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-29-adp_study7/</link>
+      <pubDate>Wed, 29 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-29-adp_study7/</guid>
+      <description>데이터 처리 기술 분산 파일 시스템 개요  저장 기술은 분산 파일시스템, 클러스터, DB, NOSQL로 구분됨 사용자 중심의 인터넷 서비스와 유비쿼터스 컴퓨팅 환경은 대규모 클러스터 시스템 플랫폼의 필요성을 부각시킴. 최근에는 파일의 메타데이터를 관리하는 전용 서버를 가지고 있는 &amp;lsquo;비대칭형 클러스터 파일 시스템&amp;rsquo;이 활발히 개발  구글 파일 시스템 (GFS) 개념</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 6</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-28-adp_study6/</link>
+      <pubDate>Tue, 28 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-28-adp_study6/</guid>
+      <description>데이터 처리 프로세스 데이터 통합 및 연계 기법 데이터 연계 및 통합 유형(동기화 기준)   연계 통합시 일괄(BATCH) 작업, 비동기식 근접 실시간(NRT), 또는 동기 실시간 방식 혼용
+  실시간 통합 : 관심 대상 영역 상태에 대한 빠른 파악 및 대응 가능</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 5</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-27-adp_study5/</link>
+      <pubDate>Mon, 27 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-27-adp_study5/</guid>
+      <description>데이터 처리 프로세스 ETL  데이터의 이동 및 변환 절차와 관련된 용어 데이터 스토어, 웨어하우스, 마트 등에 데이터를 적재 데이터 통합, 이동, 마스터 데이터 관리(MDM)에 활용, 이동과 변환이 목적 대용량 데이터 처리(MPP) 다수 시스템 간 대용량 데이터 교환 Batch, ETL, Real Time등으로 구분  ETL 기능 Extraction : 데이터 소스로부터 데이터 획득 Transformation : 데이터 클렌징, 변한, 형식 변환, 표준화, 통합 등의 비즈니스 룰 Loading : 변형이 완료된 데이터를 특정 시스템에 적재</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 4</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-25-adp_study4/</link>
+      <pubDate>Sat, 25 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-25-adp_study4/</guid>
+      <description>비정형 데이터마이닝 텍스트 마이닝  입력된 텍스트를 구조화해 그 데이터에서 패턴을 도출 후, 결과를 평가 및 해석 다양한 포맷의 문서로부터 텍스트를 추출 자연어로 구성된 비정형 텍스트 데이터 속에서 정보나 관계를 발견  텍스트마이닝 기능 : 문서 요약, 분류, 군집, 특성 추출
+Corpus  데이터의 정제 통합 선택 변환의 과정을 거친 구조화된 단계 &amp;lsquo;tm&amp;rsquo;패키지에서 문서를 관리하는 기본 구조, 문서들의 집합  tm패키지 함수  VCorpus() : 문서를 Corpus class로 만들어줌.</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 3</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-24-adp_study3/</link>
+      <pubDate>Fri, 24 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-24-adp_study3/</guid>
+      <description>정형 데이터마이닝 1. 데이터 마이닝 개요 변수 선택 filter method
+ 각각의 변수들에 대해 통계적 점수 부여, 점수로 순위를 매김 chi squared, information gain, correlatioin 등  wrapper method
+ 변수 간 상호 작용 감지, 변수의 일부만 모델링에 사용 후 결과 평가 -&amp;gt; 반복 recursive feature elimination algorithm  embedded method</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 2</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-23-adp_study_2/</link>
+      <pubDate>Thu, 23 Jan 2020 16:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-23-adp_study_2/</guid>
+      <description>2. 회귀분석 정규화 선형회귀 선형회귀 계수에 대한 제약조건 추가, 과적합을 막음 계수의 크기를 제한하는 방법으로 제약조건 추가
+  Ridge Regression
+ 가중치의 제곱합을 최소화 모든 원소가 0에 가까워짐, L2 규제    Lasso Regression
+ 가중치 절대값의 합을 최소화 라쏘에서는 릿지와 다르게 가중치가 0이 되게 함, L1 규제    Elastic Net</description>
+    </item>
+    
+    <item>
+      <title>ADP 공부하기 1</title>
+      <link>https://gyuyoungcho.github.io/posts/certificate/2020-01-23-adp_study_1/</link>
+      <pubDate>Thu, 23 Jan 2020 13:24:22 +0900</pubDate>
+      <author>rbud613@gmail.com (GyuYoung)</author>
+      <guid>https://gyuyoungcho.github.io/posts/certificate/2020-01-23-adp_study_1/</guid>
+      <description>내가 공부한 것을 요약하는 위주이기 때문에 아는 내용은 가볍게 넘어감.
+데이터 분석 1. 통계분석 연속형 확률분포  t분포 평균의 동일성 검정, 데이터가 연속형일때, 자유도 30미만 카이제곱 분포 두 집단의 동질성 검정,자유도 (r-1)(c-1) F분포 등분산성 검정, 자유도가 두 개고 커질수록 정규분포에 가까움  r을 활용한 one t-검정 t검정은 모두 모집단이 정규성을 만족한다고 가정</description>
+    </item>
+    
+  </channel>
+</rss>
