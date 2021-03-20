@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ko-kr">
     <title type="text">GyuYoung&#39;s Blog</title>
     <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
-    <updated>2021-03-18T17:01:39&#43;09:00</updated>
+    <updated>2021-03-20T19:09:34&#43;09:00</updated>
     <id>https://gyuyoungcho.github.io/</id>
     <link rel="alternate" type="text/html" href="https://gyuyoungcho.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://gyuyoungcho.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">Graph 정리</title>
             <link rel="alternate" type="text/html" href="https://gyuyoungcho.github.io/posts/algorithm/graph/graph/" />
             <id>https://gyuyoungcho.github.io/posts/algorithm/graph/graph/</id>
-            <updated>2021-03-18T16:31:31&#43;09:00</updated>
+            <updated>2021-03-18T17:02:32&#43;09:00</updated>
             <published>2021-03-18T16:27:06&#43;09:00</published>
             
             <summary type="html">그래프 `정점들의 집합과 이들을 연결하는 간선들의 집합
@@ -1197,7 +1197,74 @@ N*N의 행렬을 이용
 &lt;li&gt;stationary하게 만드는 과정 -&amp;gt; d parameter&lt;/li&gt;
 &lt;li&gt;trend, seasonality가 없어지는 과정 -&amp;gt; 보통 1,2차에서 끝나고 그래도 성능이 좋아지지 않으면 다른 요인의 문제&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# stationary 확인&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;statsmodels.tsa.stattools&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;adfuller&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;adf_check&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;adfuller&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.05&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Stationary {}&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Non-Stationary {}&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]))&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 보통 0.05이하가 되어야 &lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;adf_check&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;timeseries&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; 
+
+&lt;span class=&#34;c1&#34;&gt;# 1차 차분&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;diff1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;timeseries&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;timeseries&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;shift&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;adf_check&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;diff1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dropna&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;로그-변환&#34;&gt;로그 변환&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;표준편차가 자료의 크기에 비례하여 증가할 경우&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;정상과정-확률-모형&#34;&gt;정상과정 확률 모형&lt;/h3&gt;
+&lt;p&gt;가우시안 백색잡음의 현재값과 과거값들의 선형조합으로 이루어져 있다고 가정&lt;/p&gt;
+&lt;h4 id=&#34;autoregressionar&#34;&gt;Autoregression(AR)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;p parameter 관련&lt;/li&gt;
+&lt;li&gt;데이터와 이전 시점 사이의 관계에 대한 회귀 모델&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;moving-averagema&#34;&gt;Moving Average(MA)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;q parameter&lt;/li&gt;
+&lt;li&gt;이전 시점의 moveing average의 residual에 대한 회귀 모델 -&amp;gt; noise 예측&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;arma-auto-regressive-moving-average&#34;&gt;ARMA (Auto-Regressive Moving Average)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;AR모형과 MA모형의 특징을 모두 가지는 모형&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;arimapdq&#34;&gt;ARIMA(p,d,q)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;4 5
+c.xc
+&amp;hellip;.
+xx..
+&amp;hellip;x
+x..x&lt;/p&gt;
 &lt;p&gt;참고  : 작년 코로나 데이터 분석한 것을 복습 + 추가 개념 정리
 &lt;a href=&#34;https://github.com/GyuYoungCho/ADP_STUDY/blob/master/study/time_series.ipynb&#34;&gt;Corona data anaylsis&lt;/a&gt;
 &lt;a href=&#34;https://s3.amazonaws.com/quandl-static-content/Documents/Quandl+-+Pandas,+SciPy,+NumPy+Cheat+Sheet.pdf&#34;&gt;자주 쓰는 numpy/pandas&lt;/a&gt;
