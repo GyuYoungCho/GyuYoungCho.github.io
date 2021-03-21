@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.80.0" /><meta name="theme-color" content="#fff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Corona 확진자 분석 및 시계열 예측 | GyuYoung&#39;s Blog</title>
+
+    <link rel="stylesheet" href="/css/meme.min.e2a672f470aa8810b465a8136763e5fb7480bbabe4c8417c88ecfadb7d01ba55.css"/>
+
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.c525de540f0cbec2b7691f56380d26a9dbc21bd0b9114258cb1918e468fd4b6b.js"></script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="GyuYoung" /><meta name="description" content="2-1-1 : 코로나 인구대비 확진자수가 많은 상위 5개국 누적확진자수, 일일확진자수, 누적사망자수, 일일사망자수 선그래프로 시각화
+2-1-2 : 코로나 검사자수, 확진자수, 완치자수, 사망자수, 인구수를 바탕으로 위험지수를 만들고 그 지수를 바탕으로 국가별 위험도를 판단, 상위 10개국에 대해 위험지수 막대그래프로 시각화
+2-1-3 : 한국 누적 확진자수를 바탕으로 시계열 예측." />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="GyuYoung&#39;s Blog" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="GyuYoung&#39;s Blog" />
+    <meta name="msapplication-starturl" content="../../../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://gyuyoungcho.github.io/posts/data_science/time_series/corona/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2021-03-21T17:11:41+09:00",
+        "dateModified": "2021-03-21T23:57:19+09:00",
+        "url": "https://gyuyoungcho.github.io/posts/data_science/time_series/corona/",
+        "headline": "Corona 확진자 분석 및 시계열 예측",
+        "description": "2-1-1 : 코로나 인구대비 확진자수가 많은 상위 5개국 누적확진자수, 일일확진자수, 누적사망자수, 일일사망자수 선그래프로 시각화\n2-1-2 : 코로나 검사자수, 확진자수, 완치자수, 사망자수, 인구수를 바탕으로 위험지수를 만들고 그 지수를 바탕으로 국가별 위험도를 판단, 상위 10개국에 대해 위험지수 막대그래프로 시각화\n2-1-3 : 한국 누적 확진자수를 바탕으로 시계열 예측.",
+        "inLanguage" : "ko-kr",
+        "articleSection": "posts",
+        "wordCount":  1711 ,
+        "image": ["https://user-images.githubusercontent.com/49333349/111909407-8377d080-8aa0-11eb-8155-19f2fc0c98cb.png","https://user-images.githubusercontent.com/49333349/111909426-94284680-8aa0-11eb-815b-53c53aec1b2b.png","https://user-images.githubusercontent.com/49333349/111909437-a2766280-8aa0-11eb-9896-4c0dd25c3e50.png","https://user-images.githubusercontent.com/49333349/111909446-adc98e00-8aa0-11eb-8e2b-6d097d73fa14.png","https://user-images.githubusercontent.com/49333349/111909459-bd48d700-8aa0-11eb-8fdc-c11fc9620642.png","https://user-images.githubusercontent.com/49333349/111909468-c9cd2f80-8aa0-11eb-8526-46ba1f680a6e.png","https://user-images.githubusercontent.com/49333349/111909484-d94c7880-8aa0-11eb-828f-c9b2c6feab70.png","https://user-images.githubusercontent.com/49333349/111909506-ed907580-8aa0-11eb-875f-6c1a69e2e712.png","https://user-images.githubusercontent.com/49333349/111909520-fa14ce00-8aa0-11eb-8c79-5bf7239206b7.png","https://user-images.githubusercontent.com/49333349/111909533-0567f980-8aa1-11eb-93b1-bdd686ca4bdc.png","https://user-images.githubusercontent.com/49333349/111909544-1153bb80-8aa1-11eb-819e-4eac4abf08f5.png","https://user-images.githubusercontent.com/49333349/111909560-26304f00-8aa1-11eb-8314-c5a9b3f26567.png","https://gyuyoungcho.github.io/output_49_1.png","https://gyuyoungcho.github.io/output_52_1.png"],
+        "publisher": {
+            "@type": "Organization",
+            "name": "GyuYoung's Blog",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png"
+            },
+            "url": "https://gyuyoungcho.github.io/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://gyuyoungcho.github.io/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary_large_image" />
+
+
+<meta name="twitter:site" content="@gyuyoungcho" />
+
+    
+
+
+
+<meta property="og:title" content="Corona 확진자 분석 및 시계열 예측" />
+<meta property="og:description" content="2-1-1 : 코로나 인구대비 확진자수가 많은 상위 5개국 누적확진자수, 일일확진자수, 누적사망자수, 일일사망자수 선그래프로 시각화
+2-1-2 : 코로나 검사자수, 확진자수, 완치자수, 사망자수, 인구수를 바탕으로 위험지수를 만들고 그 지수를 바탕으로 국가별 위험도를 판단, 상위 10개국에 대해 위험지수 막대그래프로 시각화
+2-1-3 : 한국 누적 확진자수를 바탕으로 시계열 예측." />
+<meta property="og:url" content="https://gyuyoungcho.github.io/posts/data_science/time_series/corona/" />
+<meta property="og:site_name" content="GyuYoung&#39;s Blog" />
+<meta property="og:locale" content="ko" /><meta property="og:image" content="https://user-images.githubusercontent.com/49333349/111909407-8377d080-8aa0-11eb-8155-19f2fc0c98cb.png" />
+<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2021-03-21T17:11:41&#43;09:00" />
+    <meta property="article:modified_time" content="2021-03-21T23:57:19&#43;09:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+
+        
+
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZW9WNNPRD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HZW9WNNPRD');
+    </script>
+
+
+
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">GyuYoung&#39;s Blog</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">Posts</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/categories/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon th"><path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"/></svg><span class="menu-item-name">Categories</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">Tags</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">About</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                <li class="menu-item search-item">
+                        <form id="search" class="search" role="search">
+    <label for="search-input"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon search-icon"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></label>
+    <input type="search" id="search-input" class="search-input">
+</form>
+
+<template id="search-result" hidden>
+    <article class="content post">
+        <h2 class="post-title"><a class="summary-title-link"></a></h2>
+        <summary class="summary"></summary>
+        <div class="read-more-container">
+            <a class="read-more-link"> »</a>
+        </div>
+    </article>
+</template>
+
+                    </li>
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-small-caps="true" data-align="default" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title p-name">Corona 확진자 분석 및 시계열 예측</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2021-03-21T17:11:41&#43;09:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2021.3.21</time>
+    
+    
+        
+        <time datetime="2021-03-21T23:57:19&#43;09:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2021.3.21</time>
+    
+    
+    
+        
+        
+        
+            
+                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/categories/data_science/" class="category-link p-category">Data_Science</a>/<a href="/categories/time_series/" class="category-link p-category">Time_Series</a></span>
+            
+        
+    
+    
+        
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1711</span>
+    
+    
+        
+        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;9&nbsp;</span>
+    
+    
+    
+</div>
+
+            
+
+            <div class="post-body e-content">
+              <p><a href="#2-1-1">2-1-1</a> : 코로나 인구대비 확진자수가 많은 상위 5개국 누적확진자수, 일일확진자수, 누적사망자수, 일일사망자수 선그래프로 시각화</p>
+<p><a href="#2-1-2">2-1-2</a> : 코로나 검사자수, 확진자수, 완치자수, 사망자수, 인구수를 바탕으로 위험지수를 만들고 그 지수를 바탕으로 국가별 위험도를 판단, 상위 10개국에 대해 위험지수 막대그래프로 시각화</p>
+<p><a href="#2-1-3">2-1-3</a> : 한국 누적 확진자수를 바탕으로 시계열 예측. 선형 시계열과 비선형 시계열 2가지로 모델링하고 평가. 5월 16일 이후 데이터로 테스트.</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">seasonal_decompose</span> 
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">corona</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/covid_19_data.csv&#39;</span><span class="p">,</span><span class="n">index_col</span> <span class="o">=</span> <span class="s1">&#39;ObservationDate&#39;</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">corona</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 109382 entries, 2020-01-22 to 2020-09-13
+Data columns (total 7 columns):
+ #   Column          Non-Null Count   Dtype  
+---  ------          --------------   -----  
+ 0   SNo             109382 non-null  int64  
+ 1   Province/State  75709 non-null   object 
+ 2   Country/Region  109382 non-null  object 
+ 3   Last Update     109382 non-null  object 
+ 4   Confirmed       109382 non-null  float64
+ 5   Deaths          109382 non-null  float64
+ 6   Recovered       109382 non-null  float64
+dtypes: float64(3), int64(1), object(3)
+memory usage: 6.7+ MB
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">corona</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SNo</th>
+      <th>Province/State</th>
+      <th>Country/Region</th>
+      <th>Last Update</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+    <tr>
+      <th>ObservationDate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-22</th>
+      <td>1</td>
+      <td>Anhui</td>
+      <td>Mainland China</td>
+      <td>1/22/2020 17:00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>2</td>
+      <td>Beijing</td>
+      <td>Mainland China</td>
+      <td>1/22/2020 17:00</td>
+      <td>14.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>3</td>
+      <td>Chongqing</td>
+      <td>Mainland China</td>
+      <td>1/22/2020 17:00</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>4</td>
+      <td>Fujian</td>
+      <td>Mainland China</td>
+      <td>1/22/2020 17:00</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-22</th>
+      <td>5</td>
+      <td>Gansu</td>
+      <td>Mainland China</td>
+      <td>1/22/2020 17:00</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+<h1 id="span-stylecolorblue2-1-1span"><a href="#span-stylecolorblue2-1-1span" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><span style="color:blue">2-1-1</span></h1>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">corona</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>DatetimeIndex(['2020-01-22', '2020-01-23', '2020-01-24', '2020-01-25',
+               '2020-01-26', '2020-01-27', '2020-01-28', '2020-01-29',
+               '2020-01-30', '2020-01-31',
+               ...
+               '2020-09-04', '2020-09-05', '2020-09-06', '2020-09-07',
+               '2020-09-08', '2020-09-09', '2020-09-10', '2020-09-11',
+               '2020-09-12', '2020-09-13'],
+              dtype='datetime64[ns]', name='ObservationDate', length=236, freq=None)
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">last_day</span> <span class="o">=</span> <span class="n">corona</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">corona</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="s1">&#39;2020-09-13&#39;</span><span class="p">]</span>
+<span class="n">last_day_country</span> <span class="o">=</span> <span class="n">last_day</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)[[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">,</span><span class="s1">&#39;Deaths&#39;</span><span class="p">,</span><span class="s1">&#39;Recovered&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">last_day_country</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+    <tr>
+      <th>Country/Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>38716.0</td>
+      <td>1420.0</td>
+      <td>31638.0</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>11353.0</td>
+      <td>334.0</td>
+      <td>6569.0</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>48254.0</td>
+      <td>1612.0</td>
+      <td>34037.0</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>1344.0</td>
+      <td>53.0</td>
+      <td>943.0</td>
+    </tr>
+    <tr>
+      <th>Angola</th>
+      <td>3388.0</td>
+      <td>134.0</td>
+      <td>1301.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>West Bank and Gaza</th>
+      <td>30574.0</td>
+      <td>221.0</td>
+      <td>20082.0</td>
+    </tr>
+    <tr>
+      <th>Western Sahara</th>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>Yemen</th>
+      <td>2011.0</td>
+      <td>583.0</td>
+      <td>1212.0</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>13539.0</td>
+      <td>312.0</td>
+      <td>12260.0</td>
+    </tr>
+    <tr>
+      <th>Zimbabwe</th>
+      <td>7526.0</td>
+      <td>224.0</td>
+      <td>5678.0</td>
+    </tr>
+  </tbody>
+</table></div>
+<p style="text-indent:0"><span class="drop-cap">1</span>90 rows × 3 columns</p>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Confirmed_list</span> <span class="o">=</span> <span class="n">last_day_country</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">Deaths_list</span> <span class="o">=</span> <span class="n">last_day_country</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Deaths&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">last_day_country</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+    <tr>
+      <th>Country/Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>US</th>
+      <td>6519573.0</td>
+      <td>194071.0</td>
+      <td>2451406.0</td>
+    </tr>
+    <tr>
+      <th>India</th>
+      <td>4754356.0</td>
+      <td>78586.0</td>
+      <td>3702595.0</td>
+    </tr>
+    <tr>
+      <th>Brazil</th>
+      <td>4330455.0</td>
+      <td>131625.0</td>
+      <td>3723206.0</td>
+    </tr>
+    <tr>
+      <th>Russia</th>
+      <td>1059024.0</td>
+      <td>18517.0</td>
+      <td>873684.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>722832.0</td>
+      <td>30526.0</td>
+      <td>559321.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Laos</th>
+      <td>23.0</td>
+      <td>0.0</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <th>Saint Kitts and Nevis</th>
+      <td>17.0</td>
+      <td>0.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>Holy See</th>
+      <td>12.0</td>
+      <td>0.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>Western Sahara</th>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>MS Zaandam</th>
+      <td>9.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table></div>
+<p style="text-indent:0"><span class="drop-cap">1</span>90 rows × 3 columns</p>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Confirmed_list</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>Index(['US', 'India', 'Brazil', 'Russia', 'Peru'], dtype='object', name='Country/Region')
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Top_Confrimed</span> <span class="o">=</span> <span class="n">corona</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">corona</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">Confirmed_list</span><span class="p">)]</span>
+<span class="n">Top_Deaths</span> <span class="o">=</span> <span class="n">corona</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">corona</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">Deaths_list</span><span class="p">)]</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">five_top_Confirmed</span> <span class="o">=</span> <span class="n">Top_Confrimed</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span><span class="s1">&#39;ObservationDate&#39;</span><span class="p">])[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">five_top_Deaths</span> <span class="o">=</span> <span class="n">Top_Deaths</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">,</span><span class="s1">&#39;ObservationDate&#39;</span><span class="p">])[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">five_top_Confirmed</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">five_top_Deaths</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;AxesSubplot:xlabel='ObservationDate'&gt;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909407-8377d080-8aa0-11eb-8155-19f2fc0c98cb.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909426-94284680-8aa0-11eb-815b-53c53aec1b2b.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">f_u</span> <span class="o">=</span> <span class="n">five_top_Confirmed</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span>
+<span class="n">f_d</span> <span class="o">=</span> <span class="n">five_top_Deaths</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)</span>
+<span class="n">one_day_Confirmed</span> <span class="o">=</span> <span class="n">f_u</span> <span class="o">-</span> <span class="n">f_u</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">one_day_Deaths</span> <span class="o">=</span> <span class="n">f_d</span> <span class="o">-</span> <span class="n">f_d</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">one_day_Confirmed</span> 
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Country/Region</th>
+      <th>Brazil</th>
+      <th>India</th>
+      <th>Peru</th>
+      <th>Russia</th>
+      <th>US</th>
+    </tr>
+    <tr>
+      <th>ObservationDate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-01-22</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-23</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-24</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-25</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2020-01-26</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-09-09</th>
+      <td>35816.0</td>
+      <td>95735.0</td>
+      <td>4615.0</td>
+      <td>5172.0</td>
+      <td>34256.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-10</th>
+      <td>40557.0</td>
+      <td>96551.0</td>
+      <td>6586.0</td>
+      <td>5310.0</td>
+      <td>35286.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-11</th>
+      <td>43718.0</td>
+      <td>97570.0</td>
+      <td>7291.0</td>
+      <td>5421.0</td>
+      <td>47192.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-12</th>
+      <td>33523.0</td>
+      <td>94372.0</td>
+      <td>6603.0</td>
+      <td>5406.0</td>
+      <td>41471.0</td>
+    </tr>
+    <tr>
+      <th>2020-09-13</th>
+      <td>14768.0</td>
+      <td>0.0</td>
+      <td>6162.0</td>
+      <td>5361.0</td>
+      <td>34359.0</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>236 rows × 5 columns</p>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">one_day_Confirmed</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">one_day_Deaths</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>(-100.0, 5000.0)
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909437-a2766280-8aa0-11eb-9896-4c0dd25c3e50.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909446-adc98e00-8aa0-11eb-8e2b-6d097d73fa14.png" alt="image"></p>
+<h1 id="span-stylecolorblue2-1-2span"><a href="#span-stylecolorblue2-1-2span" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><span style="color:blue">2-1-2</span></h1>
+<ul>
+<li>risk = (확진자 수 - 사망자 수 - 완치자 수)/(state * 10000)</li>
+<li>국가별 1달 risk 계산 평균 -&gt; top 10</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">one_month</span> <span class="o">=</span> <span class="n">corona</span><span class="p">[</span><span class="s1">&#39;2020-08-14&#39;</span><span class="p">:]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">one_month</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;ObservationDate&#39;</span><span class="p">,</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">])[[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">,</span><span class="s1">&#39;Deaths&#39;</span><span class="p">,</span><span class="s1">&#39;Recovered&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">a</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+    <tr>
+      <th>ObservationDate</th>
+      <th>Country/Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">2020-08-14</th>
+      <th>Afghanistan</th>
+      <td>37431.0</td>
+      <td>1363.0</td>
+      <td>26714.0</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>7117.0</td>
+      <td>219.0</td>
+      <td>3695.0</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>37664.0</td>
+      <td>1351.0</td>
+      <td>26308.0</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>989.0</td>
+      <td>53.0</td>
+      <td>863.0</td>
+    </tr>
+    <tr>
+      <th>Angola</th>
+      <td>1852.0</td>
+      <td>86.0</td>
+      <td>584.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">2020-09-13</th>
+      <th>West Bank and Gaza</th>
+      <td>30574.0</td>
+      <td>221.0</td>
+      <td>20082.0</td>
+    </tr>
+    <tr>
+      <th>Western Sahara</th>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>Yemen</th>
+      <td>2011.0</td>
+      <td>583.0</td>
+      <td>1212.0</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>13539.0</td>
+      <td>312.0</td>
+      <td>12260.0</td>
+    </tr>
+    <tr>
+      <th>Zimbabwe</th>
+      <td>7526.0</td>
+      <td>224.0</td>
+      <td>5678.0</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>5890 rows × 3 columns</p>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ObservationDate</th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+    </tr>
+    <tr>
+      <th>Country/Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <td>2020-08-14</td>
+      <td>37431.0</td>
+      <td>1363.0</td>
+      <td>26714.0</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <td>2020-08-14</td>
+      <td>7117.0</td>
+      <td>219.0</td>
+      <td>3695.0</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <td>2020-08-14</td>
+      <td>37664.0</td>
+      <td>1351.0</td>
+      <td>26308.0</td>
+    </tr>
+    <tr>
+      <th>Andorra</th>
+      <td>2020-08-14</td>
+      <td>989.0</td>
+      <td>53.0</td>
+      <td>863.0</td>
+    </tr>
+    <tr>
+      <th>Angola</th>
+      <td>2020-08-14</td>
+      <td>1852.0</td>
+      <td>86.0</td>
+      <td>584.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>West Bank and Gaza</th>
+      <td>2020-09-13</td>
+      <td>30574.0</td>
+      <td>221.0</td>
+      <td>20082.0</td>
+    </tr>
+    <tr>
+      <th>Western Sahara</th>
+      <td>2020-09-13</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>Yemen</th>
+      <td>2020-09-13</td>
+      <td>2011.0</td>
+      <td>583.0</td>
+      <td>1212.0</td>
+    </tr>
+    <tr>
+      <th>Zambia</th>
+      <td>2020-09-13</td>
+      <td>13539.0</td>
+      <td>312.0</td>
+      <td>12260.0</td>
+    </tr>
+    <tr>
+      <th>Zimbabwe</th>
+      <td>2020-09-13</td>
+      <td>7526.0</td>
+      <td>224.0</td>
+      <td>5678.0</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>5890 rows × 4 columns</p>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">b</span> <span class="o">=</span> <span class="n">last_day</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)[</span><span class="s1">&#39;SNo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;State_Num&#39;</span>
+<span class="n">b</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>Country/Region
+Russia            83
+US                58
+Japan             49
+India             37
+Colombia          33
+Mexico            32
+Mainland China    31
+Ukraine           27
+Brazil            27
+Peru              26
+Name: State_Num, dtype: int64
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ObservationDate&#39;</span><span class="p">,</span><span class="n">append</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>State_Num</th>
+    </tr>
+    <tr>
+      <th>Country/Region</th>
+      <th>ObservationDate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Afghanistan</th>
+      <th>2020-08-14</th>
+      <td>37431.0</td>
+      <td>1363.0</td>
+      <td>26714.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-08-15</th>
+      <td>37551.0</td>
+      <td>1370.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-08-16</th>
+      <td>37596.0</td>
+      <td>1375.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-08-17</th>
+      <td>37599.0</td>
+      <td>1375.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-08-18</th>
+      <td>37599.0</td>
+      <td>1375.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">Zimbabwe</th>
+      <th>2020-09-09</th>
+      <td>7429.0</td>
+      <td>222.0</td>
+      <td>5542.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-09-10</th>
+      <td>7453.0</td>
+      <td>222.0</td>
+      <td>5635.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-09-11</th>
+      <td>7479.0</td>
+      <td>224.0</td>
+      <td>5660.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-09-12</th>
+      <td>7508.0</td>
+      <td>224.0</td>
+      <td>5675.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2020-09-13</th>
+      <td>7526.0</td>
+      <td>224.0</td>
+      <td>5678.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>5890 rows × 4 columns</p>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="p">[</span><span class="s1">&#39;risk_pi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Deaths&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Recovered&#39;</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;State_Num&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<div class="table-container"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
+      <th>State_Num</th>
+      <th>risk_pi</th>
+    </tr>
+    <tr>
+      <th>Country/Region</th>
+      <th>ObservationDate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Afghanistan</th>
+      <th>2020-08-14</th>
+      <td>37431.0</td>
+      <td>1363.0</td>
+      <td>26714.0</td>
+      <td>1</td>
+      <td>0.9354</td>
+    </tr>
+    <tr>
+      <th>2020-08-15</th>
+      <td>37551.0</td>
+      <td>1370.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+      <td>0.9015</td>
+    </tr>
+    <tr>
+      <th>2020-08-16</th>
+      <td>37596.0</td>
+      <td>1375.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+      <td>0.9055</td>
+    </tr>
+    <tr>
+      <th>2020-08-17</th>
+      <td>37599.0</td>
+      <td>1375.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+      <td>0.9058</td>
+    </tr>
+    <tr>
+      <th>2020-08-18</th>
+      <td>37599.0</td>
+      <td>1375.0</td>
+      <td>27166.0</td>
+      <td>1</td>
+      <td>0.9058</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># last_day_country[&#39;risk_pi&#39;] = (last_day_country[&#39;Confirmed&#39;]/1000000 - last_day_country[&#39;Recovered&#39;]/1000000)/1000000</span>
+<span class="c1"># top_risk_list = last_day_country.sort_values(by=&#39;risk_pi&#39;,ascending=False)[:10]</span>
+<span class="n">df_risk</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">)[</span><span class="s1">&#39;risk_pi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">top_risk_list</span> <span class="o">=</span> <span class="n">df_risk</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">top_risk_list</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>Country/Region
+Bangladesh      10.533694
+Argentina       10.164006
+South Africa     7.527106
+US               6.239020
+Philippines      6.162177
+Belgium          5.627332
+Iraq             5.155116
+Bolivia          5.124435
+Honduras         4.621997
+Romania          4.466106
+Name: risk_pi, dtype: float64
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">top_risk_list</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;AxesSubplot:xlabel='Country/Region'&gt;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909459-bd48d700-8aa0-11eb-8fdc-c11fc9620642.png" alt="image"></p>
+<h1 id="span-stylecolorblue2-1-3span"><a href="#span-stylecolorblue2-1-3span" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><span style="color:blue">2-1-3</span></h1>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">k_c</span> <span class="o">=</span> <span class="n">corona</span><span class="p">[</span><span class="n">corona</span><span class="p">[</span><span class="s1">&#39;Country/Region&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;South Korea&#39;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_c</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_c</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>236
+236
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>  <span class="c1"># 정상성 판별 여부</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">k</span> <span class="o">=</span> <span class="n">k_c</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">]</span>
+<span class="n">korea_co</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">k</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">korea_co</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;AxesSubplot:xlabel='ObservationDate'&gt;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909468-c9cd2f80-8aa0-11eb-8526-46ba1f680a6e.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train</span> <span class="o">=</span> <span class="n">korea_co</span><span class="p">[:</span><span class="s1">&#39;2020-05-15&#39;</span><span class="p">]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">korea_co</span><span class="p">[</span><span class="s1">&#39;2020-05-16&#39;</span><span class="p">:</span><span class="s1">&#39;2020-06-15&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">adfuller</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>(-2.692880412737049,
+ 0.07527839224613403,
+ 5,
+ 108,
+ {'1%': -3.4924012594942333,
+  '5%': -2.8886968193364835,
+  '10%': -2.5812552709190673},
+ 1147.051801657943)
+</code></pre>
+<p>1차 차분</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">diff1</span> <span class="o">=</span> <span class="p">(</span><span class="n">train</span> <span class="o">-</span> <span class="n">train</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">adfuller</span><span class="p">(</span><span class="n">diff1</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>(-5.228238034317768,
+ 7.697004182819284e-06,
+ 2,
+ 110,
+ {'1%': -3.4912451337340342,
+  '5%': -2.8881954545454547,
+  '10%': -2.5809876033057852},
+ 1139.877102390829)
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">decomposition</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">diff1</span><span class="p">)</span>
+<span class="n">decomposition</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><img src="https://user-images.githubusercontent.com/49333349/111909484-d94c7880-8aa0-11eb-828f-c9b2c6feab70.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">diff2</span> <span class="o">=</span> <span class="p">(</span><span class="n">diff1</span> <span class="o">-</span> <span class="n">diff1</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">adfuller</span><span class="p">(</span><span class="n">diff2</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>(-6.291128356594684,
+ 3.5970963612700875e-08,
+ 6,
+ 105,
+ {'1%': -3.4942202045135513,
+  '5%': -2.889485291005291,
+  '10%': -2.5816762131519275},
+ 1140.9946617995597)
+</code></pre>
+<p>2차 차분</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">decomposition</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">diff2</span><span class="p">)</span>
+<span class="n">decomposition</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><img src="https://user-images.githubusercontent.com/49333349/111909506-ed907580-8aa0-11eb-875f-6c1a69e2e712.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">plot_acf</span><span class="p">(</span><span class="n">diff1</span><span class="p">);</span>
+<span class="n">plot_pacf</span><span class="p">(</span><span class="n">diff1</span><span class="p">);</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p><img src="https://user-images.githubusercontent.com/49333349/111909520-fa14ce00-8aa0-11eb-8c79-5bf7239206b7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909533-0567f980-8aa1-11eb-93b1-bdd686ca4bdc.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">train</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">trend</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>C:\Users\Gyu\Anaconda3\envs\py37\lib\site-packages\statsmodels\tsa\base\tsa_model.py:165: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  % freq, ValueWarning)
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="table-container"><table class="simpletable">
+<caption>Statespace Model Results</caption>
+<tr>
+  <th>Dep. Variable:</th>       <td>Confirmed</td>    <th>  No. Observations:  </th>    <td>114</td>  
+</tr>
+<tr>
+  <th>Model:</th>           <td>SARIMAX(1, 1, 1)</td> <th>  Log Likelihood     </th> <td>-641.888</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sun, 27 Sep 2020</td> <th>  AIC                </th> <td>1291.777</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>10:40:43</td>     <th>  BIC                </th> <td>1302.687</td>
+</tr>
+<tr>
+  <th>Sample:</th>             <td>01-23-2020</td>    <th>  HQIC               </th> <td>1296.204</td>
+</tr>
+<tr>
+  <th></th>                   <td>- 05-15-2020</td>   <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>   
+</tr>
+</table></div>
+<div class="table-container"><table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>drift</th>  <td>   -0.0210</td> <td>    0.162</td> <td>   -0.129</td> <td> 0.897</td> <td>   -0.339</td> <td>    0.297</td>
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>   -0.1768</td> <td>    0.215</td> <td>   -0.821</td> <td> 0.412</td> <td>   -0.599</td> <td>    0.245</td>
+</tr>
+<tr>
+  <th>ma.L1</th>  <td>   -0.0869</td> <td>    0.199</td> <td>   -0.437</td> <td> 0.662</td> <td>   -0.476</td> <td>    0.302</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td> 5025.8920</td> <td>  309.739</td> <td>   16.226</td> <td> 0.000</td> <td> 4418.815</td> <td> 5632.969</td>
+</tr>
+</table></div>
+<div class="table-container"><table class="simpletable">
+<tr>
+  <th>Ljung-Box (Q):</th>          <td>34.23</td> <th>  Jarque-Bera (JB):  </th> <td>350.68</td>
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.73</td>  <th>  Prob(JB):          </th>  <td>0.00</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>0.01</td>  <th>  Skew:              </th>  <td>-0.03</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.00</td>  <th>  Kurtosis:          </th>  <td>11.63</td>
+</tr>
+</table></div><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pred</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2020-05-16&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;2020-06-15&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+<span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;pred&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;AxesSubplot:xlabel='ObservationDate'&gt;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909544-1153bb80-8aa1-11eb-819e-4eac4abf08f5.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">pred</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>3631.3045190567364
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">statespace</span><span class="o">.</span><span class="n">SARIMAX</span><span class="p">(</span><span class="n">train</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">trend</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>C:\Users\Gyu\Anaconda3\envs\py37\lib\site-packages\statsmodels\tsa\base\tsa_model.py:165: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  % freq, ValueWarning)
+</code></pre>
+<div class="table-container"><table class="simpletable">
+<caption>Statespace Model Results</caption>
+<tr>
+  <th>Dep. Variable:</th>       <td>Confirmed</td>    <th>  No. Observations:  </th>    <td>114</td>  
+</tr>
+<tr>
+  <th>Model:</th>           <td>SARIMAX(1, 1, 1)</td> <th>  Log Likelihood     </th> <td>-641.925</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sun, 27 Sep 2020</td> <th>  AIC                </th> <td>1293.851</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>10:42:26</td>     <th>  BIC                </th> <td>1307.488</td>
+</tr>
+<tr>
+  <th>Sample:</th>             <td>01-23-2020</td>    <th>  HQIC               </th> <td>1299.384</td>
+</tr>
+<tr>
+  <th></th>                   <td>- 05-15-2020</td>   <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>   
+</tr>
+</table></div>
+<div class="table-container"><table class="simpletable">
+<tr>
+     <td></td>        <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>drift</th>   <td>   -0.0008</td> <td>    0.735</td> <td>   -0.001</td> <td> 0.999</td> <td>   -1.441</td> <td>    1.439</td>
+</tr>
+<tr>
+  <th>trend.2</th> <td>   -0.0002</td> <td>    0.016</td> <td>   -0.015</td> <td> 0.988</td> <td>   -0.031</td> <td>    0.031</td>
+</tr>
+<tr>
+  <th>ar.L1</th>   <td>   -0.1758</td> <td>    0.224</td> <td>   -0.785</td> <td> 0.433</td> <td>   -0.615</td> <td>    0.263</td>
+</tr>
+<tr>
+  <th>ma.L1</th>   <td>   -0.0878</td> <td>    0.207</td> <td>   -0.425</td> <td> 0.671</td> <td>   -0.493</td> <td>    0.317</td>
+</tr>
+<tr>
+  <th>sigma2</th>  <td> 5216.6180</td> <td>  347.385</td> <td>   15.017</td> <td> 0.000</td> <td> 4535.756</td> <td> 5897.480</td>
+</tr>
+</table></div>
+<div class="table-container"><table class="simpletable">
+<tr>
+  <th>Ljung-Box (Q):</th>          <td>34.24</td> <th>  Jarque-Bera (JB):  </th> <td>350.89</td>
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.73</td>  <th>  Prob(JB):          </th>  <td>0.00</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>0.01</td>  <th>  Skew:              </th>  <td>-0.04</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.00</td>  <th>  Kurtosis:          </th>  <td>11.63</td>
+</tr>
+</table></div><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pred</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2020-05-16&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;2020-06-15&#39;</span><span class="p">)</span>
+<span class="n">train</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+<span class="n">pred</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;pred&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;AxesSubplot:xlabel='ObservationDate'&gt;
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/49333349/111909560-26304f00-8aa1-11eb-8314-c5a9b3f26567.png" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">pred</span><span class="p">)</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>6478.176590606611
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">statsmodels.tsa.api</span> <span class="kn">import</span> <span class="n">ExponentialSmoothing</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train</span><span class="p">),</span>
+                <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">)</span>
+<span class="n">model_result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model_result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="table-container"><table class="simpletable">
+<caption>ExponentialSmoothing Model Results</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>endog</td>        <th>  No. Observations:  </th>        <td>114</td>      
+</tr>
+<tr>
+  <th>Model:</th>            <td>ExponentialSmoothing</td> <th>  SSE                </th>    <td>571027.819</td>   
+</tr>
+<tr>
+  <th>Optimized:</th>                <td>True</td>         <th>  AIC                </th>      <td>979.165</td>    
+</tr>
+<tr>
+  <th>Trend:</th>                  <td>Additive</td>       <th>  BIC                </th>      <td>990.110</td>    
+</tr>
+<tr>
+  <th>Seasonal:</th>                 <td>None</td>         <th>  AICC               </th>      <td>979.950</td>    
+</tr>
+<tr>
+  <th>Seasonal Periods:</th>         <td>None</td>         <th>  Date:              </th> <td>Sun, 27 Sep 2020</td>
+</tr>
+<tr>
+  <th>Box-Cox:</th>                  <td>False</td>        <th>  Time:              </th>     <td>10:46:34</td>    
+</tr>
+<tr>
+  <th>Box-Cox Coeff.:</th>           <td>None</td>         <th>                     </th>         <td> </td>       
+</tr>
+</table></div>
+<div class="table-container"><table class="simpletable">
+<tr>
+         <td></td>                 <th>coeff</th>                <th>code</th>               <th>optimized</th>     
+</tr>
+<tr>
+  <th>smoothing_level</th> <td>           0.7647937</td> <td>               alpha</td> <td>                True</td>
+</tr>
+<tr>
+  <th>smoothing_slope</th> <td>            0.000000</td> <td>                beta</td> <td>                True</td>
+</tr>
+<tr>
+  <th>initial_level</th>   <td>            0.000000</td> <td>                 l.0</td> <td>                True</td>
+</tr>
+<tr>
+  <th>initial_slope</th>   <td>           0.1845664</td> <td>                 b.0</td> <td>                True</td>
+</tr>
+</table></div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">y_hat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_result</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">],</span><span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">])</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>360.9693621017652
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+<span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;matplotlib.legend.Legend at 0x22130294f60&gt;
+</code></pre>
+<p><img src="output_49_1.png" alt="png"></p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">trend</span><span class="o">=</span><span class="s1">&#39;mul&#39;</span><span class="p">)</span>
+<span class="n">model_result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">model_result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><div class="table-container"><table class="simpletable">
+<caption>ExponentialSmoothing Model Results</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>endog</td>        <th>  No. Observations:  </th>        <td>114</td>      
+</tr>
+<tr>
+  <th>Model:</th>            <td>ExponentialSmoothing</td> <th>  SSE                </th>    <td>559193.862</td>   
+</tr>
+<tr>
+  <th>Optimized:</th>                <td>True</td>         <th>  AIC                </th>      <td>976.778</td>    
+</tr>
+<tr>
+  <th>Trend:</th>               <td>Multiplicative</td>    <th>  BIC                </th>      <td>987.723</td>    
+</tr>
+<tr>
+  <th>Seasonal:</th>                 <td>None</td>         <th>  AICC               </th>      <td>977.563</td>    
+</tr>
+<tr>
+  <th>Seasonal Periods:</th>         <td>None</td>         <th>  Date:              </th> <td>Sun, 27 Sep 2020</td>
+</tr>
+<tr>
+  <th>Box-Cox:</th>                  <td>False</td>        <th>  Time:              </th>     <td>10:47:32</td>    
+</tr>
+<tr>
+  <th>Box-Cox Coeff.:</th>           <td>None</td>         <th>                     </th>         <td> </td>       
+</tr>
+</table></div>
+<div class="table-container"><table class="simpletable">
+<tr>
+         <td></td>                 <th>coeff</th>                <th>code</th>               <th>optimized</th>     
+</tr>
+<tr>
+  <th>smoothing_level</th> <td>           0.7749651</td> <td>               alpha</td> <td>                True</td>
+</tr>
+<tr>
+  <th>smoothing_slope</th> <td>            0.000000</td> <td>                beta</td> <td>                True</td>
+</tr>
+<tr>
+  <th>initial_level</th>   <td>           0.4787151</td> <td>                 l.0</td> <td>                True</td>
+</tr>
+<tr>
+  <th>initial_slope</th>   <td>           0.9574234</td> <td>                 b.0</td> <td>                True</td>
+</tr>
+</table></div>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">y_hat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_result</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;Confirmed&#39;</span><span class="p">],</span><span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">])</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>995.7063961726025
+</code></pre>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
+<span class="n">y_hat</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;ES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><pre><code>&lt;matplotlib.legend.Legend at 0x2212c6de470&gt;
+</code></pre>
+<p><img src="output_52_1.png" alt="png"></p>
+<p>비선형되는 방법&hellip;.?</p>
+<ul>
+<li><a href="https://otexts.com/fppkr/arima-ets.html" target="_blank" rel="noopener">https://otexts.com/fppkr/arima-ets.html</a></li>
+<li><a href="https://teamdable.github.io/techblog/Time-Series-Analysis-hw" target="_blank" rel="noopener">https://teamdable.github.io/techblog/Time-Series-Analysis-hw</a></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">
+</code></pre></td></tr></table></div>
+</div>
+</div>
+            </div>
+
+            
+    
+    
+
+
+
+        </article>
+
+        
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2021-03-21 23:57:19 KST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-03-21</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-03-21</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        <div class="post-share">
+
+        
+
+        <div class="share-items">
+
+            
+                <div class="share-item twitter">
+                    
+                    <a href="https://twitter.com/share?url=https://gyuyoungcho.github.io/posts/data_science/time_series/corona/&amp;text=Corona%20%ed%99%95%ec%a7%84%ec%9e%90%20%eb%b6%84%ec%84%9d%20%eb%b0%8f%20%ec%8b%9c%ea%b3%84%ec%97%b4%20%ec%98%88%ec%b8%a1&amp;hashtags=&amp;via=gyuyoungcho" title="" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item facebook">
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://gyuyoungcho.github.io/posts/data_science/time_series/corona/&amp;hashtag=%23" title="" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item linkedin">
+                    
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gyuyoungcho.github.io/posts/data_science/time_series/corona/&amp;title=Corona%20%ed%99%95%ec%a7%84%ec%9e%90%20%eb%b6%84%ec%84%9d%20%eb%b0%8f%20%ec%8b%9c%ea%b3%84%ec%97%b4%20%ec%98%88%ec%b8%a1&amp;summary=2-1-1%20:%20%ec%bd%94%eb%a1%9c%eb%82%98%20%ec%9d%b8%ea%b5%ac%eb%8c%80%eb%b9%84%20%ed%99%95%ec%a7%84%ec%9e%90%ec%88%98%ea%b0%80%20%eb%a7%8e%ec%9d%80%20%ec%83%81%ec%9c%84%205%ea%b0%9c%ea%b5%ad%20%eb%88%84%ec%a0%81%ed%99%95%ec%a7%84%ec%9e%90%ec%88%98,%20%ec%9d%bc%ec%9d%bc%ed%99%95%ec%a7%84%ec%9e%90%ec%88%98,%20%eb%88%84%ec%a0%81%ec%82%ac%eb%a7%9d%ec%9e%90%ec%88%98,%20%ec%9d%bc%ec%9d%bc%ec%82%ac%eb%a7%9d%ec%9e%90%ec%88%98%20%ec%84%a0%ea%b7%b8%eb%9e%98%ed%94%84%eb%a1%9c%20%ec%8b%9c%ea%b0%81%ed%99%94%0a2-1-2%20:%20%ec%bd%94%eb%a1%9c%eb%82%98%20%ea%b2%80%ec%82%ac%ec%9e%90%ec%88%98,%20%ed%99%95%ec%a7%84%ec%9e%90%ec%88%98,%20%ec%99%84%ec%b9%98%ec%9e%90%ec%88%98,%20%ec%82%ac%eb%a7%9d%ec%9e%90%ec%88%98,%20%ec%9d%b8%ea%b5%ac%ec%88%98%eb%a5%bc%20%eb%b0%94%ed%83%95%ec%9c%bc%eb%a1%9c%20%ec%9c%84%ed%97%98%ec%a7%80%ec%88%98%eb%a5%bc%20%eb%a7%8c%eb%93%a4%ea%b3%a0%20%ea%b7%b8%20%ec%a7%80%ec%88%98%eb%a5%bc%20%eb%b0%94%ed%83%95%ec%9c%bc%eb%a1%9c%20%ea%b5%ad%ea%b0%80%eb%b3%84%20%ec%9c%84%ed%97%98%eb%8f%84%eb%a5%bc%20%ed%8c%90%eb%8b%a8,%20%ec%83%81%ec%9c%84%2010%ea%b0%9c%ea%b5%ad%ec%97%90%20%eb%8c%80%ed%95%b4%20%ec%9c%84%ed%97%98%ec%a7%80%ec%88%98%20%eb%a7%89%eb%8c%80%ea%b7%b8%eb%9e%98%ed%94%84%eb%a1%9c%20%ec%8b%9c%ea%b0%81%ed%99%94%0a2-1-3%20:%20%ed%95%9c%ea%b5%ad%20%eb%88%84%ec%a0%81%20%ed%99%95%ec%a7%84%ec%9e%90%ec%88%98%eb%a5%bc%20%eb%b0%94%ed%83%95%ec%9c%bc%eb%a1%9c%20%ec%8b%9c%ea%b3%84%ec%97%b4%20%ec%98%88%ec%b8%a1.&amp;source=GyuYoung%27s%20Blog" title="" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </div>
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+                <div class="share-item qrcode">
+                    <div class="qrcode-container" title=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qrcode-icon"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg><div id="qrcode-img"></div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+<script>
+    var typeNumber = 0;
+    var errorCorrectionLevel = 'L';
+    var qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData('https:\/\/gyuyoungcho.github.io\/posts\/data_science\/time_series\/corona\/');
+    qr.make();
+    document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
+</script>
+
+                </div>
+            
+
+        </div>
+
+    </div>
+
+
+
+
+        
+    
+    
+        <div class="related-posts">
+            <h2 class="related-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon related-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"/></svg></h2>
+            <ul class="related-list">
+                
+                    <li class="related-item">
+                        <a href="/posts/data_science/time_series/hello/" class="related-link">시계열 데이터 이해</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+
+
+        
+    
+
+
+
+        
+    <footer class="minimal-footer">
+        
+        
+        
+            
+                <div class="post-category">
+                    <a href="/categories/data_science/" class="post-category-link">data_science</a>/<a href="/categories/time_series/" class="post-category-link">time_series</a>
+                </div>
+            
+        
+    </footer>
+
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+            
+                <li class="post-nav-next">
+                    <a href="/posts/data_science/time_series/hello/" rel="next">시계열 데이터 이해 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+    
+
+        <div class="load-comments">
+            <div id="load-comments"></div>
+        </div>
+
+        
+
+        
+
+        
+            <div id="utterances">
+                <script src="https://utteranc.es/client.js"
+                    repo="GyuYoungCho/GyuYoungCho.github.io"
+                    issue-term="pathname"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+            </div>
+        
+
+    
+
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;2020–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;GyuYoung</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+
+            
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+    <script>
+    if (typeof MathJax === 'undefined') {
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/mhchem']
+            },
+            
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]},
+                tags: 'ams',
+                packages: {'[+]': ['mhchem']}
+            }
+        };
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+    } else {
+        MathJax.texReset();
+        MathJax.typeset();
+    }
+</script>
+
+
+
+
+
+
+    
+
+        
+
+        
+
+        
+            <script>
+    function loadComments() {
+        (function() {
+            var utterances = document.getElementById("utterances");
+            var script = document.createElement('script');
+            script.src = 'https://utteranc.es/client.js';
+            script.async = true;
+            script.crossOrigin = 'anonymous';
+            script.setAttribute('repo', 'GyuYoungCho\/GyuYoungCho.github.io');
+            script.setAttribute('issue-term', 'pathname');
+            const isDark = getCurrentTheme() === 'dark';
+        if (isDark) {
+            script.setAttribute('theme', 'photon-dark');
+        } else {
+            script.setAttribute('theme', 'github-light');
+        }
+            
+            utterances.appendChild(script);
+        })();
+    }
+</script>
+        
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    mediumZoom(document.querySelectorAll('div.post-body img'), {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+
+    </body>
+</html>
