@@ -3,85 +3,127 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gyuyoungcho.github.io/categories/data_science/</loc>
-    <lastmod>2021-03-26T21:26:06+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/categories/data_handling/</loc>
+    <lastmod>2021-03-27T05:20:14+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/ensemble/</loc>
-    <lastmod>2021-03-26T21:26:06+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/categories/data_science/</loc>
+    <lastmod>2021-03-27T05:20:14+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/</loc>
-    <lastmod>2021-03-26T21:26:06+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://gyuyoungcho.github.io/categories/machine_learning/</loc>
-    <lastmod>2021-03-26T21:26:06+09:00</lastmod>
+    <lastmod>2021-03-27T05:20:14+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/posts/</loc>
-    <lastmod>2021-03-26T21:26:06+09:00</lastmod>
+    <lastmod>2021-03-27T05:20:14+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/randomforest/</loc>
-    <lastmod>2021-03-26T17:46:28+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/data_handling/categorical/</loc>
+    <lastmod>2021-03-27T05:20:14+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/neural/</loc>
-    <lastmod>2021-03-26T17:40:36+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/categories/machine_learning/</loc>
+    <lastmod>2021-03-27T05:06:01+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/decision/</loc>
-    <lastmod>2021-03-26T17:40:16+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/data_handling/pandas2/</loc>
+    <lastmod>2021-03-27T05:14:09+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/svm/</loc>
-    <lastmod>2021-03-26T15:44:20+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/regress_variable/</loc>
+    <lastmod>2021-03-27T05:06:01+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/knn/</loc>
-    <lastmod>2021-03-26T13:39:05+09:00</lastmod>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/pca/</loc>
+    <lastmod>2021-03-27T04:47:17+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/posts/data_science/text_mining/text/</loc>
-    <lastmod>2021-03-26T13:36:38+09:00</lastmod>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/categories/text_mining/</loc>
-    <lastmod>2021-03-26T13:36:38+09:00</lastmod>
+    <lastmod>2021-03-27T01:36:14+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/text_mining/re/</loc>
+    <lastmod>2021-03-27T01:36:14+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/ensemble/</loc>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/randomforest/</loc>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/neural/</loc>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/decision/</loc>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/svm/</loc>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/knn/</loc>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -123,7 +165,7 @@
   
   <url>
     <loc>https://gyuyoungcho.github.io/posts/data_science/machine_learning/regress/</loc>
-    <lastmod>2021-03-25T23:32:40+09:00</lastmod>
+    <lastmod>2021-03-26T23:53:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -215,13 +257,6 @@
   <url>
     <loc>https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_20058/</loc>
     <lastmod>2021-03-23T22:16:16+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://gyuyoungcho.github.io/categories/data_handling/</loc>
-    <lastmod>2021-03-24T23:05:28+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
