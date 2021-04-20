@@ -3,22 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gyuyoungcho.github.io/posts/algorithm/study12/%EB%B0%B1%EC%A4%80_11559puyo/</loc>
+    <lastmod>2021-04-20T23:56:36+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/categories/algorithm/</loc>
+    <lastmod>2021-04-20T23:56:36+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://gyuyoungcho.github.io/</loc>
-    <lastmod>2021-04-19T23:55:38+09:00</lastmod>
+    <lastmod>2021-04-20T23:56:36+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/posts/</loc>
-    <lastmod>2021-04-19T23:55:38+09:00</lastmod>
+    <lastmod>2021-04-20T23:56:36+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://gyuyoungcho.github.io/categories/study12/</loc>
+    <lastmod>2021-04-20T23:56:36+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://gyuyoungcho.github.io/posts/algorithm/study12/</loc>
-    <lastmod>2021-04-19T21:59:45+09:00</lastmod>
+    <lastmod>2021-04-19T23:57:12+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,22 +52,8 @@
   </url>
   
   <url>
-    <loc>https://gyuyoungcho.github.io/categories/algorithm/</loc>
-    <lastmod>2021-04-19T23:55:38+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://gyuyoungcho.github.io/categories/study12/</loc>
-    <lastmod>2021-04-19T23:55:38+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://gyuyoungcho.github.io/posts/algorithm/study12/%EB%B0%B1%EC%A4%80_17498%ED%8F%B4%EC%A7%9D/</loc>
-    <lastmod>2021-04-19T23:55:38+09:00</lastmod>
+    <lastmod>2021-04-20T22:49:47+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
