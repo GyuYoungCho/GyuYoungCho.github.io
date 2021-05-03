@@ -12,7 +12,7 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>[백준]16234 떡장수와 호랑이 | GyuYoung&#39;s Blog</title>
+    <title>[백준] 1756 피자굽기? | GyuYoung&#39;s Blog</title>
 
     <link rel="stylesheet" href="/css/meme.min.e2a672f470aa8810b465a8136763e5fb7480bbabe4c8417c88ecfadb7d01ba55.css"/>
 
@@ -27,8 +27,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" /></noscript>
 
-    <meta name="author" content="GyuYoung" /><meta name="description" content="` dfs &#43; backtracking
- 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57  import java." />
+    <meta name="author" content="GyuYoung" /><meta name="description" content="`
+들어갈 수 있는 값을 구하고 뒤에서부터 비교함
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38  import java." />
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
@@ -47,21 +48,21 @@
     
 
     
-    <link rel="canonical" href="https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_16234_/" />
+    <link rel="canonical" href="https://gyuyoungcho.github.io/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/" />
     
 
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "datePublished": "2021-03-22T23:25:57+09:00",
-        "dateModified": "2021-03-23T22:24:41+09:00",
-        "url": "https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_16234_/",
-        "headline": "[백준]16234 떡장수와 호랑이",
-        "description": "` dfs + backtracking\n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57  import java.",
+        "datePublished": "2021-05-03T23:52:06+09:00",
+        "dateModified": "2021-05-03T23:55:22+09:00",
+        "url": "https://gyuyoungcho.github.io/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/",
+        "headline": "[백준] 1756 피자굽기?",
+        "description": "`\n들어갈 수 있는 값을 구하고 뒤에서부터 비교함\n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38  import java.",
         "inLanguage" : "ko-kr",
         "articleSection": "posts",
-        "wordCount":  219 ,
+        "wordCount":  155 ,
         "image": "https://gyuyoungcho.github.io/icons/apple-touch-icon.png",
         "publisher": {
             "@type": "Organization",
@@ -89,15 +90,16 @@
 
 
 
-<meta property="og:title" content="[백준]16234 떡장수와 호랑이" />
-<meta property="og:description" content="` dfs &#43; backtracking
- 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57  import java." />
-<meta property="og:url" content="https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_16234_/" />
+<meta property="og:title" content="[백준] 1756 피자굽기?" />
+<meta property="og:description" content="`
+들어갈 수 있는 값을 구하고 뒤에서부터 비교함
+ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38  import java." />
+<meta property="og:url" content="https://gyuyoungcho.github.io/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/" />
 <meta property="og:site_name" content="GyuYoung&#39;s Blog" />
 <meta property="og:locale" content="en" /><meta property="og:image" content="https://gyuyoungcho.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2021-03-22T23:25:57&#43;09:00" />
-    <meta property="article:modified_time" content="2021-03-23T22:24:41&#43;09:00" />
+    <meta property="article:published_time" content="2021-05-03T23:52:06&#43;09:00" />
+    <meta property="article:modified_time" content="2021-05-03T23:55:22&#43;09:00" />
     
     <meta property="article:section" content="posts" />
 
@@ -228,7 +230,7 @@
 
         <article class="content post h-entry" data-small-caps="true" data-align="default" data-type="posts" data-toc-num="true">
 
-            <h1 class="post-title p-name">[백준]16234 떡장수와 호랑이</h1>
+            <h1 class="post-title p-name">[백준] 1756 피자굽기?</h1>
 
             
 
@@ -242,11 +244,11 @@
 <div class="post-meta">
     
         
-        <time datetime="2021-03-22T23:25:57&#43;09:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2021.3.22</time>
+        <time datetime="2021-05-03T23:52:06&#43;09:00" class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2021.5.3</time>
     
     
         
-        <time datetime="2021-03-23T22:24:41&#43;09:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2021.3.23</time>
+        <time datetime="2021-05-03T23:55:22&#43;09:00" class="post-meta-item modified dt-updated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2021.5.3</time>
     
     
     
@@ -254,17 +256,17 @@
         
         
             
-                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/categories/algorithm/" class="category-link p-category">Algorithm</a>/<a href="/categories/study9/" class="category-link p-category">study9</a></span>
+                <span class="post-meta-item category"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>&nbsp;<a href="/categories/algorithm/" class="category-link p-category">Algorithm</a>/<a href="/categories/study14/" class="category-link p-category">Study14</a></span>
             
         
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;219</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;155</span>
     
     
         
-        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;2&nbsp;mins</span>
+        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;1&nbsp;min</span>
     
     
     
@@ -273,7 +275,8 @@
             
 
             <div class="post-body e-content">
-              <p style="text-indent:0"><span class="drop-cap">`</span> dfs + backtracking</p>
+              <p style="text-indent:0"><span class="drop-cap">`</span></p>
+<p>들어갈 수 있는 값을 구하고 뒤에서부터 비교함</p>
 <hr>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
@@ -315,25 +318,6 @@
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
@@ -341,57 +325,38 @@
 <span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.StringTokenizer</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">B16432</span> <span class="o">{</span>
-	<span class="kd">static</span> <span class="kt">int</span> <span class="n">N</span><span class="o">,</span> <span class="n">K</span><span class="o">;</span>
-	<span class="kd">static</span> <span class="kt">boolean</span> <span class="n">flag</span><span class="o">;</span>
-	<span class="kd">static</span> <span class="kt">int</span> <span class="n">arr</span><span class="o">[][],</span> <span class="n">dp</span><span class="o">[];</span>
-	<span class="kd">static</span> <span class="kt">boolean</span><span class="o">[][]</span> <span class="n">visit</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">N</span><span class="o">,</span><span class="n">M</span><span class="o">,</span><span class="n">next</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+	<span class="kd">static</span> <span class="kt">int</span> <span class="n">arr</span><span class="o">[];</span>
 	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 		<span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
-		<span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
-		<span class="n">StringTokenizer</span> <span class="n">st</span><span class="o">;</span>
-		<span class="n">N</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-		<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">][</span><span class="n">10</span><span class="o">];</span>
-		<span class="n">visit</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">][</span><span class="n">10</span><span class="o">];</span>
-		<span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">];</span>
-		<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
-			<span class="n">K</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
-			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">K</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
-				<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">())]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
-			<span class="o">}</span>
+		<span class="n">StringTokenizer</span> <span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		<span class="n">N</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">M</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+		<span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">N</span><span class="o">+</span><span class="n">1</span><span class="o">];</span>
+		<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+		
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			<span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">next</span><span class="o">,</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+			<span class="n">next</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
 		<span class="o">}</span>
+		<span class="kt">int</span> <span class="n">left</span><span class="o">=</span><span class="n">0</span><span class="o">,</span><span class="n">right</span> <span class="o">=</span> <span class="n">N</span><span class="o">;</span>
+		<span class="n">st</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
 		
-		<span class="n">get</span><span class="o">(</span><span class="n">0</span><span class="o">,</span><span class="n">0</span><span class="o">);</span>
-		
-		<span class="k">if</span><span class="o">(</span><span class="n">flag</span><span class="o">)</span> <span class="o">{</span>
-			<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-				<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">]).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;\n&#34;</span><span class="o">);</span>
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">M</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="kt">int</span> <span class="n">now</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+			
+			<span class="k">while</span><span class="o">(</span><span class="n">right</span><span class="o">&gt;</span><span class="n">0</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]&lt;</span><span class="n">now</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">right</span><span class="o">--;</span>
 			<span class="o">}</span>
-		<span class="o">}</span><span class="k">else</span> <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(-</span><span class="n">1</span><span class="o">);</span>
-		
-		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+			<span class="n">right</span><span class="o">--;</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">right</span><span class="o">&lt;</span><span class="n">0</span><span class="o">)</span> <span class="k">break</span><span class="o">;</span>
+			
+		<span class="o">}</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">right</span><span class="o">&lt;</span><span class="n">0</span><span class="o">?</span><span class="n">0</span><span class="o">:</span><span class="n">right</span><span class="o">+</span><span class="n">1</span><span class="o">);</span>
 	<span class="o">}</span>
-	
-	<span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
-		<span class="k">if</span><span class="o">(</span><span class="n">next</span><span class="o">==</span><span class="n">N</span><span class="o">)</span> <span class="o">{</span>
-			<span class="n">flag</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-			<span class="k">return</span><span class="o">;</span>
-		<span class="o">}</span>
-		
-		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-			<span class="c1">/// 이전 값과 비교하고 다음 값 있는지 확인
-</span><span class="c1"></span>			<span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">==</span><span class="n">i</span><span class="o">)</span> <span class="k">continue</span><span class="o">;</span>
-			<span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">next</span><span class="o">][</span><span class="n">i</span><span class="o">]==</span><span class="n">1</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">visit</span><span class="o">[</span><span class="n">next</span><span class="o">+</span><span class="n">1</span><span class="o">][</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
-				<span class="c1">// 재방문해도 아래쪽 결과는 같으므로 다시 방문하지 않아도 됨
-</span><span class="c1"></span>				<span class="n">visit</span><span class="o">[</span><span class="n">next</span><span class="o">+</span><span class="n">1</span><span class="o">][</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
-				<span class="n">dp</span><span class="o">[</span><span class="n">next</span><span class="o">]=</span><span class="n">i</span><span class="o">;</span>
-				<span class="n">get</span><span class="o">(</span><span class="n">i</span><span class="o">,</span><span class="n">next</span><span class="o">+</span><span class="n">1</span><span class="o">);</span>
-				<span class="k">if</span><span class="o">(</span><span class="n">flag</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
-				
-			<span class="o">}</span>
-		<span class="o">}</span>
-	<span class="o">}</span>
+
 <span class="o">}</span>
 </code></pre></td></tr></table></div>
 </div>
@@ -410,9 +375,9 @@
 
         
     <div class="updated-badge-container">
-        <span title="Updated @ 2021-03-23 22:24:41 KST" style="cursor:help">
+        <span title="Updated @ 2021-05-03 23:55:22 KST" style="cursor:help">
 
-<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-03-23</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-03-23</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2021-05-03</text><text x="915" y="140" textLength="650" transform="scale(.1)">2021-05-03</text></g></svg>
         </span></div>
 
 
@@ -429,21 +394,21 @@
             
                 <div class="share-item twitter">
                     
-                    <a href="https://twitter.com/share?url=https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_16234_/&amp;text=[%eb%b0%b1%ec%a4%80]16234%20%eb%96%a1%ec%9e%a5%ec%88%98%ec%99%80%20%ed%98%b8%eb%9e%91%ec%9d%b4&amp;hashtags=&amp;via=gyuyoungcho" title="Share on Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                    <a href="https://twitter.com/share?url=https://gyuyoungcho.github.io/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/&amp;text=[%eb%b0%b1%ec%a4%80]%201756%20%ed%94%bc%ec%9e%90%ea%b5%bd%ea%b8%b0?&amp;hashtags=&amp;via=gyuyoungcho" title="Share on Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item facebook">
                     
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_16234_/&amp;hashtag=%23" title="Share on Facebook" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://gyuyoungcho.github.io/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/&amp;hashtag=%23" title="Share on Facebook" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item linkedin">
                     
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gyuyoungcho.github.io/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_16234_/&amp;title=[%eb%b0%b1%ec%a4%80]16234%20%eb%96%a1%ec%9e%a5%ec%88%98%ec%99%80%20%ed%98%b8%eb%9e%91%ec%9d%b4&amp;summary=%60%20dfs%20&#43;%20backtracking%0a%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%2020%2021%2022%2023%2024%2025%2026%2027%2028%2029%2030%2031%2032%2033%2034%2035%2036%2037%2038%2039%2040%2041%2042%2043%2044%2045%2046%2047%2048%2049%2050%2051%2052%2053%2054%2055%2056%2057%20%20import%20java.&amp;source=GyuYoung%27s%20Blog" title="Share on LinkedIn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://gyuyoungcho.github.io/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/&amp;title=[%eb%b0%b1%ec%a4%80]%201756%20%ed%94%bc%ec%9e%90%ea%b5%bd%ea%b8%b0?&amp;summary=%60%0a%eb%93%a4%ec%96%b4%ea%b0%88%20%ec%88%98%20%ec%9e%88%eb%8a%94%20%ea%b0%92%ec%9d%84%20%ea%b5%ac%ed%95%98%ea%b3%a0%20%eb%92%a4%ec%97%90%ec%84%9c%eb%b6%80%ed%84%b0%20%eb%b9%84%ea%b5%90%ed%95%a8%0a%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%2020%2021%2022%2023%2024%2025%2026%2027%2028%2029%2030%2031%2032%2033%2034%2035%2036%2037%2038%20%20import%20java.&amp;source=GyuYoung%27s%20Blog" title="Share on LinkedIn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
                 </div>
             
 
@@ -467,7 +432,7 @@
     var typeNumber = 0;
     var errorCorrectionLevel = 'L';
     var qr = qrcode(typeNumber, errorCorrectionLevel);
-    qr.addData('https:\/\/gyuyoungcho.github.io\/posts\/algorithm\/study9\/%EB%B0%B1%EC%A4%80_16234_\/');
+    qr.addData('https:\/\/gyuyoungcho.github.io\/posts\/algorithm\/study14\/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90\/');
     qr.make();
     document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
 </script>
@@ -490,23 +455,23 @@
             <ul class="related-list">
                 
                     <li class="related-item">
-                        <a href="/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_13905/" class="related-link">[백준]13905 세부</a>
-                    </li>
-                
-                    <li class="related-item">
-                        <a href="/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_20058/" class="related-link">[백준]20058 마법사 상어와 파이어 스톰</a>
-                    </li>
-                
-                    <li class="related-item">
-                        <a href="/posts/algorithm/study14/%EB%B0%B1%EC%A4%80_1756_%ED%94%BC%EC%9E%90/" class="related-link">[백준] 1756 피자굽기?</a>
-                    </li>
-                
-                    <li class="related-item">
                         <a href="/posts/algorithm/study13/%EB%B0%B1%EC%A4%80_20366_%EB%88%88%EC%82%AC%EB%9E%8C/" class="related-link">[백준] 20366 같이 눈사람 만들래?</a>
                     </li>
                 
                     <li class="related-item">
                         <a href="/posts/algorithm/study13/%EB%B0%B1%EC%A4%80_11497_%ED%86%B5%EB%82%98%EB%AC%B4/" class="related-link">[백준] 11497 통나무 건너뛰기</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/algorithm/study13/%EB%B0%B1%EC%A4%80_9177_%EB%8B%A8%EC%96%B4%ED%94%84%EC%A6%90/" class="related-link">[백준] 9177 단어 프즐</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/algorithm/study12/%EB%B0%B1%EC%A4%80_11559puyo/" class="related-link">[백준] 11559 Puyo Puyo</a>
+                    </li>
+                
+                    <li class="related-item">
+                        <a href="/posts/algorithm/study12/%EB%B0%B1%EC%A4%80_1744%ED%9C%B4%EA%B2%8C%EC%86%8C/" class="related-link">[백준] 1744 휴게소 세우기</a>
                     </li>
                 
             </ul>
@@ -527,7 +492,7 @@
         
             
                 <div class="post-category">
-                    <a href="/categories/algorithm/" class="post-category-link">algorithm</a>/<a href="/categories/study9/" class="post-category-link">study9</a>
+                    <a href="/categories/algorithm/" class="post-category-link">algorithm</a>/<a href="/categories/study14/" class="post-category-link">study14</a>
                 </div>
             
         
@@ -545,15 +510,6 @@
     
     
     
-    
-        <ul class="post-nav">
-            
-                <li class="post-nav-prev">
-                    <a href="/posts/algorithm/study9/%EB%B0%B1%EC%A4%80_20058/" rel="prev">&lt; [백준]20058 마법사 상어와 파이어 스톰</a>
-                </li>
-            
-            
-        </ul>
     
 
 
